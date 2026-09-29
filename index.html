@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="sage">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakem Project — Portfolio, Storybook & Digital Ecosystem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================================================
+           COLOR PALETTES & AI GLASSMORPHISM DESIGN SYSTEM
+           ========================================================================== */
+        :root[data-theme="sage"] {
+            --bg-main: #FAF8F5;
+            --bg-sidebar: rgba(240, 236, 225, 0.75);
+            --card-bg: rgba(255, 255, 255, 0.65);
+            --card-border: rgba(143, 168, 155, 0.25);
+            --card-hover: rgba(255, 255, 255, 0.85);
+            --primary: #5E7A6C;
+            --primary-glow: rgba(94, 122, 108, 0.2);
+            --accent: #C88D56;
+            --text-main: #2C3531;
+            --text-muted: #626C66;
+            --glass-blur: blur(16px);
+            --ai-badge-bg: rgba(94, 122, 108, 0.12);
+        }
+
+        :root[data-theme="lavender"] {
+            --bg-main: #FAF6FB;
+            --bg-sidebar: rgba(243, 232, 244, 0.75);
+            --card-bg: rgba(255, 255, 255, 0.65);
+            --card-border: rgba(184, 161, 217, 0.3);
+            --card-hover: rgba(255, 255, 255, 0.9);
+            --primary: #8E6BB8;
+            --primary-glow: rgba(142, 107, 184, 0.2);
+            --accent: #E08E8E;
+            --text-main: #2D283E;
+            --text-muted: #655E75;
+            --glass-blur: blur(16px);
+            --ai-badge-bg: rgba(142, 107, 184, 0.12);
+        }
+
+        :root[data-theme="midnight"] {
+            --bg-main: #0F111A;
+            --bg-sidebar: rgba(26, 29, 45, 0.7);
+            --card-bg: rgba(30, 34, 53, 0.55);
+            --card-border: rgba(0, 240, 255, 0.15);
+            --card-hover: rgba(38, 44, 68, 0.75);
+            --primary: #00E5FF;
+            --primary-glow: rgba(0, 229, 255, 0.25);
+            --accent: #A6E3A1;
+            --text-main: #E2E8F0;
+            --text-muted: #94A3B8;
+            --glass-blur: blur(20px);
+            --ai-badge-bg: rgba(0, 229, 255, 0.1);
+        }
+
+        /* Reset & Base Styling */
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-main); color: var(--text-main); min-height: 100vh; display: flex; overflow-x: hidden; }
+        
+        /* Subtle Grid AI Background FX */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: radial-gradient(circle at 50% 50%, var(--primary-glow) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* App Layout */
+        .app-container { display: flex; width: 100%; min-height: 100vh; z-index: 1; }
+
+        /* Sidebar - Astrofy Style */
+        .sidebar {
+            width: 320px;
+            background: var(--bg-sidebar);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-right: 1px solid var(--card-border);
+            padding: 2.5rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .profile-card { text-align: center; margin-bottom: 2rem; }
+        .avatar-container {
+            position: relative;
+            width: 108px;
+            height: 108px;
+            margin: 0 auto 1.25rem;
+        }
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            border: 3px solid var(--card-bg);
+            box-shadow: 0 8px 24px var(--primary-glow);
+        }
+        .status-badge {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            width: 18px;
+            height: 18px;
+            background-color: #10B981;
+            border: 3px solid var(--bg-main);
+            border-radius: 50%;
+        }
+
+        .profile-name { font-size: 1.35rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.02em; }
+        .profile-brand { font-size: 0.85rem; font-weight: 600; color: var(--primary); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.2rem; }
+        .profile-bio { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5; }
+
+        /* Navigation Menu */
+        .nav-menu { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 2rem; }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 0.85rem 1.1rem;
+            border-radius: 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+        .nav-item:hover, .nav-item.active {
+            background: var(--card-bg);
+            color: var(--primary);
+            border-color: var(--card-border);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+        }
+
+        /* Controls Section (Themes & Languages) */
+        .controls-section { margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--card-border); }
+        .control-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+        
+        .theme-selector, .lang-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+        }
+        .lang-selector { grid-template-columns: repeat(5, 1fr); }
+
+        .btn-control {
+            padding: 0.5rem 0.2rem;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+            background: var(--card-bg);
+            color: var(--text-main);
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn-control:hover, .btn-control.active {
+            background: var(--primary);
+            color: #FFF;
+            border-color: var(--primary);
+        }
+
+        /* Main Content Area */
+        .main-content {
+            margin-left: 320px;
+            flex: 1;
+            padding: 3rem 4rem;
+            max-width: 1100px;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+        .glass-card:hover {
+            background: var(--card-hover);
+            border-color: var(--primary);
+        }
+
+        /* AI Glass Badge */
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            background: var(--ai-badge-bg);
+            border: 1px solid var(--card-border);
+            color: var(--primary);
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+        .ai-pulse {
+            width: 8px; height: 8px; border-radius: 50%; background-color: var(--primary);
+            box-shadow: 0 0 10px var(--primary); animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { opacity: 0.4; } 50% { opacity: 1; } 100% { opacity: 0.4; } }
+
+        /* Typography & Headings */
+        h1 { font-size: 2.75rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 1rem; }
+        h2 { font-size: 1.65rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+        p { line-height: 1.7; color: var(--text-muted); font-size: 1rem; }
+
+        /* Code & Folder Tree Visuals */
+        .code-block, .tree-block {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(15, 17, 26, 0.85);
+            color: #A6E3A1;
+            padding: 1.25rem;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            overflow-x: auto;
+            border: 1px solid var(--card-border);
+            margin: 1rem 0;
+        }
+        .tree-folder { color: #89DCEB; font-weight: 600; }
+        .tree-file { color: #CDD6F4; }
+        .tree-comment { color: #6C7086; font-style: italic; }
+
+        /* Progress Bar */
+        .progress-container { width: 100%; background: var(--card-border); height: 10px; border-radius: 10px; overflow: hidden; margin: 1rem 0; }
+        .progress-bar { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 10px; }
+
+        /* Timeline / Storybook */
+        .timeline { position: relative; padding-left: 2rem; border-left: 2px solid var(--card-border); }
+        .timeline-item { position: relative; margin-bottom: 2rem; }
+        .timeline-item::before {
+            content: ""; position: absolute; left: calc(-2rem - 6px); top: 4px;
+            width: 10px; height: 10px; border-radius: 50%; background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+        }
+        .timeline-date { font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; }
+        .timeline-title { font-size: 1.1rem; font-weight: 700; margin: 0.25rem 0 0.5rem; }
+
+        /* Matrix Tools Grid */
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 1rem; }
+        .tool-card {
+            background: var(--card-bg); border: 1px solid var(--card-border);
+            border-radius: 14px; padding: 1rem; text-align: center; font-weight: 600; font-size: 0.85rem;
+        }
+
+        /* Buttons */
+        .btn-cta {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.85rem 1.75rem; border-radius: 12px;
+            background: var(--primary); color: #FFF; font-weight: 700;
+            text-decoration: none; border: none; cursor: pointer;
+            box-shadow: 0 6px 20px var(--primary-glow);
+        }
+        .btn-cta:hover { opacity: 0.92; transform: translateY(-2px); }
+
+        /* Hide Sections for Tab Switching */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Responsive Mobile */
+        @media (max-width: 992px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .main-content { margin-left: 0; padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <!-- SIDEBAR DASHBOARD (Astrofy Style) -->
+    <aside class="sidebar">
+        <div class="profile-card">
+            <div class="avatar-container">
+                <div class="avatar-img">H</div>
+                <div class="status-badge" title="Active & Deploying"></div>
+            </div>
+            <div class="profile-name">Hakem Project</div>
+            <div class="profile-brand">Lukmanul Hakim</div>
+            <p class="profile-bio" id="txt-bio">Web Developer & Ecosystem Architect. Focus on Lightweight Zero-JS & Local Business Digitization.</p>
+        </div>
+
+        <nav class="nav-menu">
+            <a class="nav-item active" onclick="switchTab('hero')">
+                <span>⚡</span> <span id="nav-hero">Hero Landing</span>
+            </a>
+            <a class="nav-item" onclick="switchTab('story')">
+                <span>📖</span> <span id="nav-story">Sejarah & Story</span>
+            </a>
+            <a class="nav-item" onclick="switchTab('projects')">
+                <span>🚀</span> <span id="nav-projects">Progres Proyek</span>
+            </a>
+            <a class="nav-item" onclick="switchTab('diary')">
+                <span>✍️</span> <span id="nav-diary">Buku Harian</span>
+            </a>
+            <a class="nav-item" onclick="switchTab('tools')">
+                <span>🛠️</span> <span id="nav-tools">Perangkat & Stack</span>
+            </a>
+        </nav>
+
+        <div class="controls-section">
+            <div class="control-label" id="lbl-theme">Skema Warna</div>
+            <div class="theme-selector">
+                <button class="btn-control active" onclick="setTheme('sage')">Sage</button>
+                <button class="btn-control" onclick="setTheme('lavender')">Lavender</button>
+                <button class="btn-control" onclick="setTheme('midnight')">Midnight</button>
+            </div>
+
+            <div class="control-label" id="lbl-lang">Pilih Bahasa</div>
+            <div class="lang-selector">
+                <button class="btn-control active" onclick="setLang('id')">ID</button>
+                <button class="btn-control" onclick="setLang('en')">EN</button>
+                <button class="btn-control" onclick="setLang('de')">DE</button>
+                <button class="btn-control" onclick="setLang('ru')">RU</button>
+                <button class="btn-control" onclick="setLang('zh')">ZH</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+
+        <!-- TAB 1: HERO LANDING -->
+        <section id="tab-hero" class="tab-content active">
+            <div class="glass-card">
+                <div class="ai-badge">
+                    <span class="ai-pulse"></span>
+                    <span id="badge-status">Ecosystem Online — Cloudflare Pages Deployed</span>
+                </div>
+                <h1 id="hero-title">Membangun Ekosistem Digital Berkelanjutan.</h1>
+                <p id="hero-desc">Portofolio interaktif, jurnal harian, dan dokumentasi arsitektur platform dari <strong>Hakem Project</strong>. Didesain cepat, transparan, dan berkinerja tinggi.</p>
+                <br>
+                <a href="#projects" onclick="switchTab('projects')" class="btn-cta" id="btn-explore">Jelajahi Proyek Platform ➔</a>
+            </div>
+
+            <div class="glass-card">
+                <h2><span>💡</span> <span id="title-focus">Fokus Utama Pengembangan</span></h2>
+                <p id="desc-focus">Membuat fondasi sistem web yang tidak membebani perangkat pengguna. Memaksimalkan efisiensi HTML5, SVG Murni, dan deployment otomatis melalui GitHub & Cloudflare Pages.</p>
+            </div>
+        </section>
+
+        <!-- TAB 2: SEJARAH & STORYBOOK -->
+        <section id="tab-story" class="tab-content">
+            <div class="glass-card">
+                <h2><span>📜</span> <span id="title-story">Sejarah & Lini Masa Perjalanan</span></h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2026 — SEKARANG</div>
+                        <div class="timeline-title" id="st-title-3">Peluncuran Platform NADI & Node 1 Juta UMKM</div>
+                        <p id="st-desc-3">Pengembangan terintegrasi platform NADI (mynadi) sebagai node terpusat untuk ekspansi digital UMKM wilayah Surabaya, Sidoarjo, dan Gresik.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2026 — SEPTEMBER</div>
+                        <div class="timeline-title" id="st-title-2">Standarisasi Hakem Template Ecosystem</div>
+                        <p id="st-desc-2">Menciptakan arsitektur multi-tier template web (Tier 1 Landing Page hingga Tier 4 Enterprise Hub) berbasis Zero-JS.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Awal Perjalanan</div>
+                        <div class="timeline-title" id="st-title-1">Pusat Wifi & Hakem Media</div>
+                        <p id="st-desc-1">Membangun layanan pemasaran digital lokal, optimasi SEO internet service provider, dan pengembangan identitas digital Hakem Project.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: PROGRES PROYEK -->
+        <section id="tab-projects" class="tab-content">
+            <!-- PROJECT 1 -->
+            <div class="glass-card">
+                <div class="ai-badge">PROJECT 1</div>
+                <h2>Node Website 1juta UMKM</h2>
+                <p id="p1-desc">Platform pembuatan landing page dan katalog digital super cepat untuk mempercepat digitalisasi 1 juta UMKM lokal.</p>
+                
+                <div style="margin-top:1rem;">
+                    <strong id="p1-prog-label">Progress Pengerjaan: 85%</strong>
+                    <div class="progress-container"><div class="progress-bar" style="width: 85%;"></div></div>
+                </div>
+
+                <div class="tree-block">
+                    <span class="tree-comment">// Struktur Folder Proyek di Workstation VS Code</span><br>
+                    <span class="tree-folder">01-website/</span><br>
+                    ├── <span class="tree-folder">node-1juta-umkm/</span><br>
+                    │   ├── <span class="tree-file">index.html</span> <span class="tree-comment">(Landing Page Utama Node)</span><br>
+                    │   ├── <span class="tree-file">catalog-tier.html</span> <span class="tree-comment">(Katalog Produk UMKM)</span><br>
+                    │   └── <span class="tree-file">wa-automation.js</span> <span class="tree-comment">(Direct Routing WhatsApp)</span><br>
+                    ├── <span class="tree-folder">pusat-wifi/</span><br>
+                    └── <span class="tree-folder">holland-bangka/</span>
+                </div>
+            </div>
+
+            <!-- PROJECT 2 -->
+            <div class="glass-card">
+                <div class="ai-badge">PROJECT 2</div>
+                <h2>NADI [mynadi] — Platform Integrasi</h2>
+                <p id="p2-desc">Sistem integrasi terpusat (Network of Autonomous & Direct Intent) yang mengagregasikan seluruh node website UMKM dari Project 1 ke dalam satu ekosistem interaktif.</p>
+                
+                <div style="margin-top:1rem;">
+                    <strong id="p2-prog-label">Progress Pengerjaan: 70%</strong>
+                    <div class="progress-container"><div class="progress-bar" style="width: 70%;"></div></div>
+                </div>
+
+                <div class="tree-block">
+                    <span class="tree-comment">// Struktur Folder Platform NADI</span><br>
+                    <span class="tree-folder">02-nadi-platform/</span><br>
+                    ├── <span class="tree-folder">mynadi-core/</span><br>
+                    │   ├── <span class="tree-file">01-filosofi-nadi.md</span><br>
+                    │   ├── <span class="tree-file">02-prompt-website-umkm.md</span><br>
+                    │   └── <span class="tree-file">03-prompt-platform-nadi.md</span><br>
+                    └── <span class="tree-folder">03-docs-and-prompts/</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: BUKU HARIAN / DEVLOG -->
+        <section id="tab-diary" class="tab-content">
+            <div class="glass-card">
+                <h2><span>✍️</span> <span id="title-diary">Buku Harian & Catatan Pengembang</span></h2>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <div class="timeline-date">29 SEPTEMBER 2026</div>
+                    <h3 style="margin: 0.3rem 0;">Optimasi Cloudflare Pages & Multi-Language Dictionary</h3>
+                    <p>Hari ini menyelesaikan konfigurasi integrasi i18n untuk 5 bahasa tanpa menambah beban pustaka eksternal. Performa render tetap berada di angka 100/100 Google Lighthouse.</p>
+                </div>
+                <hr style="border: 0; border-top: 1px solid var(--card-border); margin: 1.5rem 0;">
+                <div>
+                    <div class="timeline-date">25 SEPTEMBER 2026</div>
+                    <h3 style="margin: 0.3rem 0;">Filosofi Arsitektur NADI</h3>
+                    <p>Menyusun skema routing intent bisnis untuk memastikan calon pembeli dapat langsung terhubung ke pengelola usaha melalui WhatsApp tanpa perantara yang rumit.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: TOOLS & STACK -->
+        <section id="tab-tools" class="tab-content">
+            <div class="glass-card">
+                <h2><span>🛠️️</span> <span id="title-tools">Perangkat & Stack Kerja</span></h2>
+                <p style="margin-bottom: 1.5rem;" id="desc-tools">Kombinasi perangkat lunak dan infrastruktur yang digunakan oleh Hakem Project secara harian:</p>
+                
+                <div class="tools-grid">
+                    <div class="tool-card">VS Code</div>
+                    <div class="tool-card">GitHub Repo</div>
+                    <div class="tool-card">Cloudflare Pages</div>
+                    <div class="tool-card">HTML5 / Zero-JS</div>
+                    <div class="tool-card">CSS3 Glassmorphic</div>
+                    <div class="tool-card">SVG Graphics</div>
+                    <div class="tool-card">PowerShell Git</div>
+                    <div class="tool-card">Tailwind CSS</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<!-- ==========================================================================
+     INTERACTIVE JAVASCRIPT: THEMES & 5-LANGUAGE DICTIONARY ENGINE
+     ========================================================================== -->
+<script>
+    // 1. Theme Engine
+    function setTheme(themeName) {
+        document.documentElement.setAttribute('data-theme', themeName);
+        document.querySelectorAll('.theme-selector .btn-control').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.innerText.toLowerCase() === themeName) btn.classList.add('active');
+        });
+    }
+
+    // 2. Tab Navigation Engine
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+        
+        document.getElementById('tab-' + tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+
+    // 3. Multi-Language i18n Dictionary (ID, EN, DE, RU, ZH)
+    const i18n = {
+        id: {
+            bio: "Web Developer & Ecosystem Architect. Fokus pada Lightweight Zero-JS & Digitalisasi UMKM.",
+            navHero: "Hero Landing", navStory: "Sejarah & Story", navProjects: "Progres Proyek", navDiary: "Buku Harian", navTools: "Perangkat & Stack",
+            lblTheme: "Skema Warna", lblLang: "Pilih Bahasa", badgeStatus: "Ecosystem Online — Cloudflare Pages Deployed",
+            heroTitle: "Membangun Ekosistem Digital Berkelanjutan.",
+            heroDesc: "Portofolio interaktif, jurnal harian, dan dokumentasi arsitektur platform dari Hakem Project. Didesain cepat, transparan, dan berkinerja tinggi.",
+            btnExplore: "Jelajahi Proyek Platform ➔", titleFocus: "Fokus Utama Pengembangan",
+            descFocus: "Membuat fondasi sistem web yang tidak membebani perangkat pengguna. Memaksimalkan efisiensi HTML5, SVG Murni, dan deployment otomatis melalui GitHub & Cloudflare Pages.",
+            titleStory: "Sejarah & Lini Masa Perjalanan",
+            p1Desc: "Platform pembuatan landing page dan katalog digital super cepat untuk mempercepat digitalisasi 1 juta UMKM lokal.",
+            p2Desc: "Sistem integrasi terpusat (Network of Autonomous & Direct Intent) yang mengagregasikan seluruh node website UMKM dari Project 1 ke dalam satu ekosistem interaktif.",
+            titleDiary: "Buku Harian & Catatan Pengembang", titleTools: "Perangkat & Stack Kerja",
+            descTools: "Kombinasi perangkat lunak dan infrastruktur yang digunakan oleh Hakem Project secara harian:"
+        },
+        en: {
+            bio: "Web Developer & Ecosystem Architect. Focus on Lightweight Zero-JS & Local Business Digitization.",
+            navHero: "Hero Landing", navStory: "History & Story", navProjects: "Project Progress", navDiary: "Journal/Devlog", navTools: "Tech Stack & Tools",
+            lblTheme: "Color Palette", lblLang: "Select Language", badgeStatus: "Ecosystem Online — Cloudflare Pages Deployed",
+            heroTitle: "Building Sustainable Digital Ecosystems.",
+            heroDesc: "Interactive portfolio, daily journal, and platform architecture documentation by Hakem Project. Fast, transparent, and high-performing.",
+            btnExplore: "Explore Platform Projects ➔", titleFocus: "Core Development Focus",
+            descFocus: "Creating web foundations that do not overload user devices. Maximizing HTML5 efficiency, pure SVG graphics, and automated GitHub & Cloudflare Pages deployment.",
+            titleStory: "History & Journey Timeline",
+            p1Desc: "Super-fast landing page and digital catalog creation platform to accelerate the digitization of 1 million local SMBs.",
+            p2Desc: "Centralized integration system (Network of Autonomous & Direct Intent) aggregating all SMB website nodes from Project 1 into an interactive ecosystem.",
+            titleDiary: "Developer Journal & Devlog", titleTools: "Tools & Working Stack",
+            descTools: "Software and infrastructure stack utilized daily by Hakem Project:"
+        },
+        de: {
+            bio: "Webentwickler & Ökosystem-Architekt. Fokus auf leichtes Zero-JS & KMU-Digitalisierung.",
+            navHero: "Startseite", navStory: "Geschichte", navProjects: "Projektfortschritt", navDiary: "Tagebuch", navTools: "Werkzeuge",
+            lblTheme: "Farbschema", lblLang: "Sprache Wählen", badgeStatus: "Ökosystem Online — Cloudflare Pages Bereitgestellt",
+            heroTitle: "Aufbau nachhaltiger digitaler Ökosysteme.",
+            heroDesc: "Interaktives Portfolio und Entwicklertagebuch von Hakem Project. Schnell, transparent und leistungsstark.",
+            btnExplore: "Projekte Erkunden ➔", titleFocus: "Hauptfokus der Entwicklung",
+            descFocus: "Erstellung von Web-Grundlagen, die Benutzergeräte nicht überlasten. Maximierung der HTML5-Effizienz und Cloudflare-Bereitstellung.",
+            titleStory: "Geschichte & Meilensteine",
+            p1Desc: "Superschnelle Plattform zur Erstellung von Landingpages für 1 Million lokale KMUs.",
+            p2Desc: "Zentrales Integrationssystem (NADI), das alle KMU-Websites aus Projekt 1 zusammenfasst.",
+            titleDiary: "Entwicklertagebuch", titleTools: "Werkzeuge & Stack",
+            descTools: "Software und Infrastruktur, die täglich von Hakem Project verwendet werden:"
+        },
+        ru: {
+            bio: "Веб-разработчик и архитектор экосистем. Фокус на легком Zero-JS и цифровизации бизнеса.",
+            navHero: "Главная", navStory: "История", navProjects: "Прогресс проектов", navDiary: "Дневник", navTools: "Инструменты",
+            lblTheme: "Цветовая схема", lblLang: "Выбрать язык", badgeStatus: "Экосистема онлайн — Cloudflare Pages",
+            heroTitle: "Создание устойчивых цифровых экосистем.",
+            heroDesc: "Интерактивное портфолио и дневник разработчика Hakem Project. Быстро, прозрачно и производительно.",
+            btnExplore: "Обзор проектов ➔", titleFocus: "Основной фокус разработки",
+            descFocus: "Создание веб-систем, не перегружающих устройства пользователей. Эффективность HTML5 и Cloudflare Pages.",
+            titleStory: "История и хронология",
+            p1Desc: "Сверхбыстрая платформа для создания лендингов для 1 миллиона малых предприятий.",
+            p2Desc: "Централизованная система интеграции (NADI), объединяющая все узлы из Проекта 1.",
+            titleDiary: "Дневник разработчика", titleTools: "Инструменты и стек",
+            descTools: "Программное обеспечение, ежедневно используемое Hakem Project:"
+        },
+        zh: {
+            bio: "网络开发者与生态系统架构师。专注于轻量级 Zero-JS 和中小企业数字化转型。",
+            navHero: "首页", navStory: "发展历史", navProjects: "项目进度", navDiary: "开发日志", navTools: "工具与技术栈",
+            lblTheme: "配色方案", lblLang: "选择语言", badgeStatus: "生态系统在线 — Cloudflare Pages 已部署",
+            heroTitle: "构建可持续的数字生态系统。",
+            heroDesc: "Hakem Project 的互动作品集和每日日志。快速、透明且高性能。",
+            btnExplore: "探索项目 ➔", titleFocus: "核心开发重点",
+            descFocus: "构建不会让用户设备超载的网络基础。最大化 HTML5 效率和 Cloudflare Pages 自动部署。",
+            titleStory: "历史与里程碑",
+            p1Desc: "超快速的着陆页与数字目录创建平台，助力 100 万家本地中小企业实现数字化。",
+            p2Desc: "集中式集成系统 (NADI)，将项目 1 中的所有企业网站节点聚合到一个交互式生态系统中。",
+            titleDiary: "开发者日志", titleTools: "工具与技术栈",
+            descTools: "Hakem Project 每日使用的软件与基础设施："
+        }
+    };
+
+    function setLang(langCode) {
+        const data = i18n[langCode];
+        if (!data) return;
+
+        document.getElementById('txt-bio').innerText = data.bio;
+        document.getElementById('nav-hero').innerText = data.navHero;
+        document.getElementById('nav-story').innerText = data.navStory;
+        document.getElementById('nav-projects').innerText = data.navProjects;
+        document.getElementById('nav-diary').innerText = data.navDiary;
+        document.getElementById('nav-tools').innerText = data.navTools;
+        document.getElementById('lbl-theme').innerText = data.lblTheme;
+        document.getElementById('lbl-lang').innerText = data.lblLang;
+        document.getElementById('badge-status').innerText = data.badgeStatus;
+        document.getElementById('hero-title').innerText = data.heroTitle;
+        document.getElementById('hero-desc').innerText = data.heroDesc;
+        document.getElementById('btn-explore').innerText = data.btnExplore;
+        document.getElementById('title-focus').innerText = data.titleFocus;
+        document.getElementById('desc-focus').innerText = data.descFocus;
+        document.getElementById('title-story').innerText = data.titleStory;
+        document.getElementById('p1-desc').innerText = data.p1Desc;
+        document.getElementById('p2-desc').innerText = data.p2Desc;
+        document.getElementById('title-diary').innerText = data.titleDiary;
+        document.getElementById('title-tools').innerText = data.titleTools;
+        document.getElementById('desc-tools').innerText = data.descTools;
+
+        document.querySelectorAll('.lang-selector .btn-control').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.innerText.toLowerCase() === langCode) btn.classList.add('active');
+        });
+    }
+</script>
+</body>
+</html>
