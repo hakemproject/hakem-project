@@ -431,11 +431,11 @@
       <nav class="nav-menu">
         <a href="#hero" class="nav-item active">
           <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-          <span data-key="navHero">Hero Landing</span>
+          <span data-key="navHero">Story</span>
         </a>
         <a href="#story" class="nav-item">
           <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-          <span data-key="navStory">Sejarah & Story</span>
+          <span data-key="navStory">Sejarah</span>
         </a>
         <a href="#progres" class="nav-item">
           <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
@@ -477,7 +477,7 @@
     <!-- MAIN CONTENT AREA -->
     <main class="main-content">
 
-      <!-- 1. HERO LANDING SECTION (VALUE PROP & CTA ATAS) -->
+      <!-- 1. STORY / HERO LANDING SECTION -->
       <section id="hero" class="glass-card">
         <div class="badge">
           <span class="badge-dot"></span>
@@ -493,13 +493,13 @@
           Banyak UMKM kehilangan calon pelanggan karena website lama yang lemot dan rumit. Kami ubah alur jualan Anda menjadi serba instan: begitu pengunjung klik, mereka langsung terhubung ke WhatsApp Anda tanpa hambatan.
         </p>
 
-        <!-- CTA BUTTONS (LANGSUNG DI BAWAH SUBHEADLINE) -->
+        <!-- CTA BUTTONS -->
         <div class="cta-group">
           <a href="https://wa.me/628xxxxxxxx?text=Halo,%20saya%20mau%20pesan%20landing%20page" class="btn-cta" data-key="ctaPrimary">
             💬 Chat WhatsApp Sekarang (10 Menit Siap)
           </a>
           <a href="#story" class="btn-secondary" data-key="ctaSecondary">
-            📜 Lihat Akar Projek
+            📜 Lihat Sejarah
           </a>
         </div>
 
@@ -509,11 +509,11 @@
         </div>
       </section>
 
-      <!-- 2. SEJARAH / AKAR KELAHIRAN PROJEK (DIPISAH RAPI DI BAWAH HERO & CTA) -->
+      <!-- 2. SEJARAH PROJEK -->
       <section id="story" class="glass-card story-card">
         <div class="card-title">
           <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-          <span data-key="storyTitle">Akar Kelahiran Projek</span>
+          <span data-key="storyTitle">Sejarah Kelahiran Projek</span>
         </div>
         <p class="card-text" data-key="storyDesc">
           Diciptakan untuk mengakhiri era website konvensional (WordPress/cPanel) yang lambat, mahal, dan rentan bermasalah. Berbasis teknologi <strong>Jamstack modern (Zero-JS + Cloudflare Pages)</strong>, website Anda kini memiliki kecepatan muat tinggi dengan biaya server <strong>Rp0/bulan</strong> selamanya.
@@ -534,9 +534,9 @@
     </main>
   </div>
 
-  <!-- JAVASCRIPT SYSTEM (INTERAKTIVITAS TEMA & BAHASA) -->
+  <!-- JAVASCRIPT SYSTEM -->
   <script>
-    // 1. FITUR TUKAR TEMA WARNA (SAGE, LAVENDER, MIDNIGHT)
+    // 1. FITUR TUKAR TEMA WARNA
     const themeBtns = document.querySelectorAll('[data-theme-btn]');
     themeBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -551,8 +551,8 @@
     const i18n = {
       ID: {
         bio: "Web Developer & Ecosystem Architect. Focus on Lightweight Zero-JS & Local Business Digitization.",
-        navHero: "Hero Landing",
-        navStory: "Sejarah & Story",
+        navHero: "Story",
+        navStory: "Sejarah",
         navProgres: "Progres Proyek",
         navHarian: "Buku Harian",
         navStack: "Perangkat & Stack",
@@ -560,17 +560,17 @@
         heroTitle: "Bikin Landing Page Super Cepat<br><span>Langsung Nyambung ke WhatsApp</span>",
         heroDesc: "Banyak UMKM kehilangan calon pelanggan karena website lama yang lemot dan rumit. Kami ubah alur jualan Anda menjadi serba instan: begitu pengunjung klik, mereka langsung terhubung ke WhatsApp Anda tanpa hambatan.",
         ctaPrimary: "💬 Chat WhatsApp Sekarang (10 Menit Siap)",
-        ctaSecondary: "📜 Lihat Akar Projek",
+        ctaSecondary: "📜 Lihat Sejarah",
         statusText: "STATUS: <strong>ONLINE</strong> • Siap Pengerjaan Express 1 Hari Selesai",
-        storyTitle: "Akar Kelahiran Projek",
+        storyTitle: "Sejarah Kelahiran Projek",
         storyDesc: "Diciptakan untuk mengakhiri era website konvensional (WordPress/cPanel) yang lambat, mahal, dan rentan bermasalah. Berbasis teknologi <strong>Jamstack modern (Zero-JS + Cloudflare Pages)</strong>, website Anda kini memiliki kecepatan muat tinggi dengan biaya server <strong>Rp0/bulan</strong> selamanya.",
         focusTitle: "Fokus Utama Pengembangan",
         focusDesc: "Membuat fondasi sistem web yang tidak membebani perangkat pengguna. Memaksimalkan efisiensi HTML5, SVG Murni, dan deployment otomatis melalui GitHub & Cloudflare Pages."
       },
       EN: {
         bio: "Web Developer & Ecosystem Architect. Focusing on Lightweight Zero-JS & Local Business Digitization.",
-        navHero: "Hero Landing",
-        navStory: "History & Story",
+        navHero: "Story",
+        navStory: "History",
         navProgres: "Project Progress",
         navHarian: "Daily Logs",
         navStack: "Tools & Stack",
@@ -578,16 +578,16 @@
         heroTitle: "Build Ultra-Fast Landing Pages<br><span>Directly Connected to WhatsApp</span>",
         heroDesc: "Many MSMEs lose potential buyers due to slow and complex old websites. We make your sales flow instant.",
         ctaPrimary: "💬 Chat WhatsApp Now (Ready in 10 Mins)",
-        ctaSecondary: "📜 View Project Genesis",
+        ctaSecondary: "📜 View History",
         statusText: "STATUS: <strong>ONLINE</strong> • Express 1-Day Delivery",
-        storyTitle: "Project Genesis",
+        storyTitle: "Project History",
         storyDesc: "Created to end slow, expensive, and fragile traditional websites. Built on modern Jamstack.",
         focusTitle: "Core Development Focus",
         focusDesc: "Building lightweight web foundations. Maximizing HTML5 efficiency, pure SVG, and automated deployment via GitHub & Cloudflare Pages."
       },
       DE: {
         bio: "Webentwickler & Ökosystem-Architekt. Fokus auf leichtes Zero-JS & lokale Digitalisierung.",
-        navHero: "Startseite",
+        navHero: "Story",
         navStory: "Geschichte",
         navProgres: "Fortschritt",
         navHarian: "Tagebuch",
@@ -596,16 +596,16 @@
         heroTitle: "Super schnelle Landingpages<br><span>Direkt mit WhatsApp verbunden</span>",
         heroDesc: "Viele KMUs verlieren Kunden wegen langsamer Websites.",
         ctaPrimary: "💬 Jetzt per WhatsApp chatten",
-        ctaSecondary: "📜 Projektgeschichte ansehen",
+        ctaSecondary: "📜 Geschichte ansehen",
         statusText: "STATUS: <strong>ONLINE</strong> • Expressfertigstellung in 1 Tag",
-        storyTitle: "Ursprung des Projekts",
+        storyTitle: "Geschichte des Projekts",
         storyDesc: "Entwickelt, um die Ära langsamer und teurer herkömmlicher Websites zu beenden.",
         focusTitle: "Hauptfokus der Entwicklung",
         focusDesc: "Effiziente Webleistung mit HTML5, reinen SVG-Vektoren und automatischer Bereitstellung."
       },
       RU: {
         bio: "Веб-разработчик и архитектор экосистем. Фокус на лёгком Zero-JS и цифровизации.",
-        navHero: "Главная",
+        navHero: "Story",
         navStory: "История",
         navProgres: "Прогресс",
         navHarian: "Дневник",
@@ -616,15 +616,15 @@
         ctaPrimary: "💬 Написать в WhatsApp",
         ctaSecondary: "📜 История проекта",
         statusText: "СТАТУС: <strong>ONLINE</strong> • Готовность за 1 день",
-        storyTitle: "Зарождение проекта",
+        storyTitle: "История проекта",
         storyDesc: "Создано, чтобы положить конец эпохе медленных и дорогих сайтов.",
         focusTitle: "Основной фокус разработки",
         focusDesc: "Легковесный веб, эффективность HTML5, чистый SVG и автоматический деплой."
       },
       ZH: {
         bio: "Web 开发者与数字生态架构师。专注于轻量级 Zero-JS 与本地业务数字化。",
-        navHero: "首页",
-        navStory: "历史与故事",
+        navHero: "Story",
+        navStory: "历史",
         navProgres: "项目进度",
         navHarian: "日常日志",
         navStack: "技术栈",
@@ -632,9 +632,9 @@
         heroTitle: "打造超快速 Landing Page<br><span>无缝直连 WhatsApp</span>",
         heroDesc: "许多企业因网站卡顿而流失客户。我们提供即时连接方案。",
         ctaPrimary: "💬 立即 WhatsApp 咨询（10分钟就绪）",
-        ctaSecondary: "📜 查看项目起源",
+        ctaSecondary: "📜 查看历史",
         statusText: "状态: <strong>在线</strong> • 支持1天加急交付",
-        storyTitle: "项目起源",
+        storyTitle: "项目历史",
         storyDesc: "旨在终结传统网站（WordPress/cPanel）缓慢且昂贵的问题。",
         focusTitle: "核心开发重点",
         focusDesc: "打造轻量级 Web 系统，充分利用 HTML5、原生 SVG 以及 GitHub 与 Cloudflare 自动化部署。"
