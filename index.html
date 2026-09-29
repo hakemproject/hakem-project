@@ -1,341 +1,663 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="sage">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Master Landing Page UMKM - Pusat Wifi & Jasa Web</title>
-  <meta name="description" content="Landing page super cepat, responsif, dan hemat energi untuk UMKM lokal Surabaya, Sidoarjo, dan Gresik.">
-  
-  <!-- Schema.org LocalBusiness untuk SEO Google Maps -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "[NAMA_UMKM]",
-    "telephone": "[NOMOR_WA]",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "[ALAMAT_LENGKAP]",
-      "addressLocality": "Sidoarjo"
-    }
-  }
-  </script>
-
+  <title>Hakem Project — Digital Ecosystem Architect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* CSS Variables Strategy for Quick Branding Adjustments */
-    :root {
-      --primary: #0d6efd;
-      --primary-dark: #0a58ca;
-      --accent-wa: #25d366;
-      --accent-wa-dark: #1da851;
-      --bg: #f8f9fa;
-      --card-bg: #ffffff;
-      --text: #212529;
-      --text-muted: #6c757d;
-      --radius: 12px;
-      --container-width: 800px;
-      --font-main: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    /* --- THEME SYSTEM (CSS VARIABLES) --- */
+    :root, [data-theme="sage"] {
+      --bg-color: #f6f8f6;
+      --bg-gradient: 
+        radial-gradient(at 0% 0%, rgba(210, 230, 218, 0.55) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(225, 235, 240, 0.45) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(255, 255, 255, 0.8) 0px, transparent 100%);
+      --card-bg: rgba(255, 255, 255, 0.82);
+      --card-border: rgba(255, 255, 255, 0.9);
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --accent: #2d5a3f;
+      --accent-gradient: linear-gradient(135deg, #2d5a3f 0%, #1c3827 100%);
+      --glass-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05);
+      --nav-hover: rgba(0, 0, 0, 0.04);
+      --nav-active-bg: #ffffff;
+      --btn-option-bg: rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="lavender"] {
+      --bg-color: #f8f6fc;
+      --bg-gradient: 
+        radial-gradient(at 0% 0%, rgba(233, 213, 255, 0.5) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(224, 231, 255, 0.5) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(255, 255, 255, 0.85) 0px, transparent 100%);
+      --card-bg: rgba(255, 255, 255, 0.82);
+      --card-border: rgba(255, 255, 255, 0.9);
+      --text-main: #1e1b4b;
+      --text-muted: #6b7280;
+      --accent: #6d28d9;
+      --accent-gradient: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%);
+      --glass-shadow: 0 20px 40px -15px rgba(109, 40, 217, 0.08);
+      --nav-hover: rgba(109, 40, 217, 0.05);
+      --nav-active-bg: #ffffff;
+      --btn-option-bg: rgba(109, 40, 217, 0.06);
+    }
+
+    [data-theme="midnight"] {
+      --bg-color: #0b0f17;
+      --bg-gradient: 
+        radial-gradient(at 0% 0%, rgba(30, 41, 59, 0.7) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(15, 23, 42, 0.9) 0px, transparent 50%);
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #10b981;
+      --accent-gradient: linear-gradient(135deg, #059669 0%, #047857 100%);
+      --glass-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+      --nav-hover: rgba(255, 255, 255, 0.05);
+      --nav-active-bg: rgba(255, 255, 255, 0.1);
+      --btn-option-bg: rgba(255, 255, 255, 0.08);
+    }
+
     body {
-      font-family: var(--font-main);
-      background-color: var(--bg);
-      color: var(--text);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-color);
+      background-image: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 32px 20px;
       line-height: 1.6;
-      padding: 0;
+      transition: background 0.4s ease, color 0.4s ease;
     }
 
     .container {
-      max-width: var(--container-width);
+      max-width: 1140px;
       margin: 0 auto;
-      padding: 20px 16px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 28px;
     }
 
-    /* Navigation */
-    nav {
+    @media (max-width: 868px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Glassmorphic Card */
+    .glass-card {
       background: var(--card-bg);
-      border-bottom: 1px solid #e9ecef;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      box-shadow: var(--glass-shadow);
+      padding: 28px;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background 0.4s ease;
     }
 
-    .nav-inner {
+    .glass-card:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: var(--container-width);
-      margin: 0 auto;
-      padding: 12px 16px;
+      flex-direction: column;
+      gap: 24px;
+      height: fit-content;
     }
 
-    .brand-logo {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 12px;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    /* Hero Section */
-    .hero {
-      background: var(--card-bg);
-      padding: 32px 20px;
-      border-radius: var(--radius);
+    .profile-header {
       text-align: center;
-      margin-bottom: 24px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
 
-    .hero-img {
+    .avatar-container {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 16px;
+    }
+
+    .avatar-icon {
       width: 100%;
-      max-height: 280px;
-      object-fit: cover;
-      border-radius: var(--radius);
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: 1.8rem;
-      color: var(--text);
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      color: var(--text-muted);
-      font-size: 1rem;
-      margin-bottom: 20px;
-    }
-
-    /* CTA WhatsApp Button */
-    .btn-wa {
-      display: inline-flex;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      color: #ffffff;
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      background-color: var(--accent-wa);
-      color: #ffffff;
-      padding: 14px 28px;
-      border-radius: var(--radius);
-      text-decoration: none;
+      font-size: 32px;
       font-weight: 700;
-      font-size: 1rem;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-      transition: background-color 0.2s ease;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+      border: 3px solid rgba(255, 255, 255, 0.9);
+      transition: background 0.4s ease;
+    }
+
+    .status-dot {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 14px;
+      height: 14px;
+      background-color: #10b981;
+      border: 2.5px solid #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+    }
+
+    .status-dot::after {
+      content: '';
+      position: absolute;
+      top: -2.5px;
+      left: -2.5px;
       width: 100%;
-      max-width: 360px;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px solid #10b981;
+      animation: pulse-ring 2s infinite cubic-bezier(0.215, 0.61, 0.35, 1);
     }
 
-    .btn-wa:hover {
-      background-color: var(--accent-wa-dark);
+    @keyframes pulse-ring {
+      0% { transform: scale(0.9); opacity: 0.8; }
+      100% { transform: scale(2.2); opacity: 0; }
     }
 
-    /* Section Cards */
-    .section-card {
-      background: var(--card-bg);
-      padding: 24px;
-      border-radius: var(--radius);
-      margin-bottom: 24px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    .profile-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
 
-    .section-card h2 {
-      font-size: 1.4rem;
-      margin-bottom: 16px;
-      border-bottom: 2px solid var(--bg);
-      padding-bottom: 8px;
-      color: var(--primary);
-    }
-
-    /* Grid Items */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
-    .grid-item {
-      background: var(--bg);
-      padding: 16px;
-      border-radius: var(--radius);
-    }
-
-    .grid-item h3 {
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-    }
-
-    .grid-item p {
-      font-size: 0.9rem;
+    .profile-subname {
+      font-size: 0.75rem;
+      font-weight: 700;
       color: var(--text-muted);
-    }
-
-    /* Story Section Styling */
-    .story-content {
-      font-size: 0.95rem;
-      color: #333;
-    }
-
-    .story-content h3 {
-      font-size: 1.15rem;
-      color: var(--primary);
-      margin-top: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
       margin-bottom: 8px;
     }
 
-    .story-content h4 {
-      font-size: 1.05rem;
-      margin-top: 12px;
-      margin-bottom: 6px;
-    }
-
-    .story-content p {
-      margin-bottom: 12px;
-    }
-
-    .story-content ul {
-      margin-left: 20px;
-      margin-bottom: 12px;
-    }
-
-    .story-content li {
-      margin-bottom: 6px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: var(--text-muted);
+    .profile-bio {
       font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Nav Links (Sesuai Asli) */
+    .nav-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-radius: 14px;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item:hover {
+      background: var(--nav-hover);
+      color: var(--text-main);
+    }
+
+    .nav-item.active {
+      background: var(--nav-active-bg);
+      color: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Controls Section */
+    .sidebar-controls {
+      border-top: 1px solid rgba(150, 150, 150, 0.15);
+      padding-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .control-label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .btn-option {
+      background: var(--btn-option-bg);
+      border: 1px solid transparent;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-option:hover {
+      color: var(--text-main);
+    }
+
+    .btn-option.active {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      width: fit-content;
+      margin-bottom: 16px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-size: 2.25rem;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-bottom: 24px;
+    }
+
+    /* CTA & Status Group */
+    .cta-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-gradient);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      box-shadow: 0 8px 18px -4px rgba(0, 0, 0, 0.2);
+      transition: all 0.25s ease;
+      width: fit-content;
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--btn-option-bg);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--nav-hover);
+      transform: translateY(-2px);
+    }
+
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .status-dot-inline {
+      width: 8px;
+      height: 8px;
+      background-color: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+    }
+
+    /* Story Card Styling */
+    .story-card {
+      border-left: 4px solid var(--accent);
+    }
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .card-text {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <nav>
-    <div class="nav-inner">
-      <a href="#" class="brand-logo">[NAMA_UMKM]</a>
-      <div class="nav-links">
-        <a href="#layanan">Layanan</a>
-        <a href="#lokasi">Lokasi</a>
-        <a href="#story">Story</a>
-      </div>
-    </div>
-  </nav>
-
   <div class="container">
-    <!-- Hero Section -->
-    <header class="hero">
-      <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="[NAMA_UMKM]" class="hero-img" loading="lazy">
-      <h1>[NAMA_UMKM] - [LAYANAN_UTAMA]</h1>
-      <p>[TAGLINE_USAHA] Solusi Cepat, Profesional & Terpercaya di Area Surabaya, Sidoarjo & Gresik.</p>
-      <a href="https://wa.me/[NOMOR_WA_62]?text=Halo%20[NAMA_UMKM],%20saya%20mau%20tanya%20layanan" class="btn-wa" target="_blank" rel="noopener">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.299.435 2.5 1.173 3.46l-.77 2.812 2.879-.755c.928.586 2.027.915 3.201.915 3.18 0 5.767-2.586 5.767-5.766 0-3.18-2.587-5.766-5.767-5.766z"/></svg>
-        Konsultasi via WhatsApp
-      </a>
-    </header>
+    <!-- SIDEBAR NAV (DIKUNCI SESUAI ASLI - TIDAK DIUBAH) -->
+    <aside class="glass-card sidebar">
+      <div class="profile-header">
+        <div class="avatar-container">
+          <div class="avatar-icon">H</div>
+          <div class="status-dot" title="Ecosystem Online"></div>
+        </div>
+        <h1 class="profile-name">Hakem Project</h1>
+        <div class="profile-subname">LUKMANUL HAKIM</div>
+        <p class="profile-bio" data-key="bio">Web Developer & Ecosystem Architect. Focus on Lightweight Zero-JS & Local Business Digitization.</p>
+      </div>
 
-    <!-- Services Section -->
-    <section id="layanan" class="section-card">
-      <h2>Layanan Utama</h2>
-      <div class="grid">
-        <div class="grid-item">
-          <h3>[NAMA_LAYANAN_1]</h3>
-          <p>[DESKRIPSI_RINGKAS_1] Pengerjaan cepat dengan garansi kualitas terbaik.</p>
+      <nav class="nav-menu">
+        <a href="#hero" class="nav-item active">
+          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          <span data-key="navHero">Story</span>
+        </a>
+        <a href="#story" class="nav-item">
+          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+          <span data-key="navStory">Sejarah</span>
+        </a>
+        <a href="#progres" class="nav-item">
+          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+          <span data-key="navProgres">Progres Proyek</span>
+        </a>
+        <a href="#harian" class="nav-item">
+          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+          <span data-key="navHarian">Buku Harian</span>
+        </a>
+        <a href="#stack" class="nav-item">
+          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+          <span data-key="navStack">Perangkat & Stack</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-controls">
+        <div>
+          <div class="control-label">Skema Warna</div>
+          <div class="btn-group">
+            <button class="btn-option active" data-theme-btn="sage">Sage</button>
+            <button class="btn-option" data-theme-btn="lavender">Lavender</button>
+            <button class="btn-option" data-theme-btn="midnight">Midnight</button>
+          </div>
         </div>
-        <div class="grid-item">
-          <h3>[NAMA_LAYANAN_2]</h3>
-          <p>[DESKRIPSI_RINGKAS_2] Pelayanan profesional siap panggil langsung ke lokasi Anda.</p>
-        </div>
-        <div class="grid-item">
-          <h3>[NAMA_LAYANAN_3]</h3>
-          <p>[DESKRIPSI_RINGKAS_3] Biaya terjangkau tanpa biaya tersembunyi.</p>
+
+        <div>
+          <div class="control-label">Pilih Bahasa</div>
+          <div class="btn-group">
+            <button class="btn-option active" data-lang-btn="ID">ID</button>
+            <button class="btn-option" data-lang-btn="EN">EN</button>
+            <button class="btn-option" data-lang-btn="DE">DE</button>
+            <button class="btn-option" data-lang-btn="RU">RU</button>
+            <button class="btn-option" data-lang-btn="ZH">ZH</button>
+          </div>
         </div>
       </div>
-    </section>
+    </aside>
 
-    <!-- Location Section -->
-    <section id="lokasi" class="section-card">
-      <h2>Lokasi & Jam Operasional</h2>
-      <p>📍 <strong>Alamat:</strong> [ALAMAT_LENGKAP]</p>
-      <p>⏰ <strong>Jam Buka:</strong> [JAM_OPERASIONAL]</p>
-      <p>📞 <strong>WhatsApp:</strong> [NOMOR_WA]</p>
-    </section>
+    <!-- MAIN CONTENT AREA (PENYESUAIAN KONTEN KANAN) -->
+    <main class="main-content">
 
-    <!-- STORY SECTION -->
-    <section id="story" class="section-card">
-      <h2>STORY: Blueprint & Panduan Strategi Pengembangan Web</h2>
-      <div class="story-content">
-        <h3>1. Analisis Stack: VS Code + GitHub + Cloudflare vs Hostinger AI</h3>
-        <p>Pengembangan web menggunakan stack gratis (VS Code + GitHub + Cloudflare Pages) memberikan kontrol 100% penuh, kecepatan tinggi tanpa bloatware, keamanan maksimal tanpa database rentan hack, serta bebas biaya operasional selamanya. Sebaliknya, platform paid builder seperti Hostinger menawarkan kemudahan drag-and-drop dan AI generator, tetapi mengunci ekosistem (lock-in) serta membutuhkan sewa bulanan/tahunan.</p>
+      <!-- 1. HERO / STORY SECTION -->
+      <section id="hero" class="glass-card">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span data-key="badge">💡 Solusi Penjualan UMKM</span>
+        </div>
         
-        <h3>2. Strategi Cuan 1 Minggu via Speculative Demo UMKM</h3>
-        <p>Membangun blog membutuhkan waktu 3 hingga 12 bulan untuk SEO & AdSense. Sementara menjual jasa landing page ke UMKM lokal menghasilkan cashflow aktif instan dalam hitungan hari. Strateginya adalah membuat prototipe landing page kustom berdasarkan data Google Maps UMKM lokal (Surabaya, Sidoarjo, Gresik), lalu menawarkan hasil jadi yang siap diaktifkan tanpa biaya hosting bulanan.</p>
+        <h2 class="hero-title" data-key="heroTitle">
+          Bikin Landing Page Super Cepat<br>
+          <span>Langsung Nyambung ke WhatsApp</span>
+        </h2>
+        
+        <p class="hero-desc" data-key="heroDesc">
+          Banyak UMKM kehilangan calon pelanggan karena website lama yang lemot dan rumit. Kami ubah alur jualan Anda menjadi serba instan: begitu pengunjung klik, mereka langsung terhubung ke WhatsApp Anda tanpa hambatan.
+        </p>
 
-        <h4>Rencana Eksekusi 7 Hari:</h4>
-        <ul>
-          <li><strong>Hari 1–2:</strong> Membuat Master Template Zero-JS responsif dan menyiapkan sampel portofolio.</li>
-          <li><strong>Hari 3–5:</strong> Outreach ke UMKM via WhatsApp dengan membagikan link demo aktif.</li>
-          <li><strong>Hari 6–7:</strong> Closing penawaran (paket Rp300.000–Rp750.000) dan pelunasan.</li>
-        </ul>
+        <!-- CTA BUTTONS -->
+        <div class="cta-group">
+          <a href="https://wa.me/628xxxxxxxx?text=Halo,%20saya%20mau%20pesan%20landing%20page" class="btn-cta" data-key="ctaPrimary">
+            💬 Chat WhatsApp Sekarang (10 Menit Siap)
+          </a>
+          <a href="#story" class="btn-secondary" data-key="ctaSecondary">
+            📜 Lihat Sejarah
+          </a>
+        </div>
 
-        <h3>3. Pemahaman Arsitektur & Teknologi Web Modern</h3>
-        <p>Web dibangun di atas tiga pilar utama yang diakui secara global:</p>
-        <ul>
-          <li><strong>HTML (Kerangka):</strong> Menentukan struktur dan isi dokumen web.</li>
-          <li><strong>CSS (Tampilan):</strong> Mengatur warna, tata letak, dan keindahan visual.</li>
-          <li><strong>JavaScript (Logika):</strong> Menangani interaksi dan komputasi dinamis.</li>
-        </ul>
-        <p>Guna menjaga performa maksimal, teknik <strong>Zero-JS</strong> (hanya HTML5 + CSS3) sangat ideal untuk landing page UMKM. Penggunaan API luar seperti WhatsApp (wa.me) dan Google Maps memungkinkan web memiliki fitur canggih tanpa menambah beban skrip lokal.</p>
+        <div class="status-indicator">
+          <span class="status-dot-inline"></span>
+          <span data-key="statusText">STATUS: <strong>ONLINE</strong> • Siap Pengerjaan Express 1 Hari Selesai</span>
+        </div>
+      </section>
 
-        <h3>4. Klasifikasi Tier Website di Industri</h3>
-        <ul>
-          <li><strong>Tier 1:</strong> Landing Page Statis / Zero-JS (Brosur Digital, Profil UMKM, Super Cepat & Rp0 Hosting).</li>
-          <li><strong>Tier 2:</strong> Web Dinamis Ringan / CMS (Portal Konten, Katalog Produk, Blog Berita).</li>
-          <li><strong>Tier 3:</strong> E-Commerce & Full-Stack Web App (Sistem Transaksi, Keranjang Belanja, Payment Gateway).</li>
-          <li><strong>Tier 4:</strong> Enterprise & Multi-User Platform (Figma, Canva, Multi-Messenger Workspace).</li>
-        </ul>
+      <!-- 2. SEJARAH SECTION -->
+      <section id="story" class="glass-card story-card">
+        <div class="card-title">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+          <span data-key="storyTitle">Sejarah Kelahiran Projek</span>
+        </div>
+        <p class="card-text" data-key="storyDesc">
+          Diciptakan untuk mengakhiri era website konvensional (WordPress/cPanel) yang lambat, mahal, dan rentan bermasalah. Berbasis teknologi <strong>Jamstack modern (Zero-JS + Cloudflare Pages)</strong>, website Anda kini memiliki kecepatan muat tinggi dengan biaya server <strong>Rp0/bulan</strong> selamanya.
+        </p>
+      </section>
 
-        <h3>5. Strategi 3 Kompor Paralel Ekosistem Masa Depan</h3>
-        <p>Untuk merintis ekosistem digital berkelanjutan di era AI, dijalankan 3 platform secara simultan:</p>
+      <!-- 3. FOKUS UTAMA SECTION -->
+      <section class="glass-card">
+        <div class="card-title">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+          <span data-key="focusTitle">Fokus Utama Pengembangan</span>
+        </div>
+        <p class="card-text" data-key="focusDesc">
+          Membuat fondasi sistem web yang tidak membebani perangkat pengguna. Memaksimalkan efisiensi HTML5, SVG Murni, dan deployment otomatis melalui GitHub & Cloudflare Pages.
+        </p>
+      </section>
 
-        <h4>Kompor 1: Jasa Web & Direktori UMKM (Tier 1)</h4>
-        <p>Fungsi: Menghasilkan cashflow harian serta mengunci database ribuan kontak UMKM lokal yang aktif.</p>
-
-        <h4>Kompor 2: Micro-SaaS & Otomatisasi WA (Tier 2)</h4>
-        <p>Fungsi: Alat otomatisasi balasan WA, katalog digital, dan sistem antrean untuk menghasilkan Monthly Recurring Revenue (MRR).</p>
-
-        <h4>Kompor 3: Real-Time Intent & Verified Network (Tier 3-4)</h4>
-        <p>Fungsi: Platform peta interaktif instant broadcast jasa lokal dengan verifikasi lokasi fisik dan ulasan manusia asli untuk menguasai pasar jangka panjang.</p>
-      </div>
-    </section>
+    </main>
   </div>
 
-  <footer>
-    <p>&copy; 2026 Hakem Project / Pusat Wifi. All rights reserved.</p>
-  </footer>
+  <!-- JAVASCRIPT SYSTEM -->
+  <script>
+    // 1. FITUR TUKAR TEMA WARNA
+    const themeBtns = document.querySelectorAll('[data-theme-btn]');
+    themeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        themeBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const theme = btn.getAttribute('data-theme-btn');
+        document.documentElement.setAttribute('data-theme', theme);
+      });
+    });
 
+    // 2. FITUR MULTI-BAHASA (ID, EN, DE, RU, ZH) - MENYESUAIKAN KEY ASLI
+    const i18n = {
+      ID: {
+        bio: "Web Developer & Ecosystem Architect. Focus on Lightweight Zero-JS & Local Business Digitization.",
+        navHero: "Story",
+        navStory: "Sejarah",
+        navProgres: "Progres Proyek",
+        navHarian: "Buku Harian",
+        navStack: "Perangkat & Stack",
+        badge: "💡 Solusi Penjualan UMKM",
+        heroTitle: "Bikin Landing Page Super Cepat<br><span>Langsung Nyambung ke WhatsApp</span>",
+        heroDesc: "Banyak UMKM kehilangan calon pelanggan karena website lama yang lemot dan rumit. Kami ubah alur jualan Anda menjadi serba instan: begitu pengunjung klik, mereka langsung terhubung ke WhatsApp Anda tanpa hambatan.",
+        ctaPrimary: "💬 Chat WhatsApp Sekarang (10 Menit Siap)",
+        ctaSecondary: "📜 Lihat Sejarah",
+        statusText: "STATUS: <strong>ONLINE</strong> • Siap Pengerjaan Express 1 Hari Selesai",
+        storyTitle: "Sejarah Kelahiran Projek",
+        storyDesc: "Diciptakan untuk mengakhiri era website konvensional (WordPress/cPanel) yang lambat, mahal, dan rentan bermasalah. Berbasis teknologi <strong>Jamstack modern (Zero-JS + Cloudflare Pages)</strong>, website Anda kini memiliki kecepatan muat tinggi dengan biaya server <strong>Rp0/bulan</strong> selamanya.",
+        focusTitle: "Fokus Utama Pengembangan",
+        focusDesc: "Membuat fondasi sistem web yang tidak membebani perangkat pengguna. Memaksimalkan efisiensi HTML5, SVG Murni, dan deployment otomatis melalui GitHub & Cloudflare Pages."
+      },
+      EN: {
+        bio: "Web Developer & Ecosystem Architect. Focusing on Lightweight Zero-JS & Local Business Digitization.",
+        navHero: "Story",
+        navStory: "History",
+        navProgres: "Project Progress",
+        navHarian: "Daily Logs",
+        navStack: "Tools & Stack",
+        badge: "💡 MSME Sales Solution",
+        heroTitle: "Build Ultra-Fast Landing Pages<br><span>Directly Connected to WhatsApp</span>",
+        heroDesc: "Many MSMEs lose potential buyers due to slow and complex old websites. We make your sales flow instant.",
+        ctaPrimary: "💬 Chat WhatsApp Now (Ready in 10 Mins)",
+        ctaSecondary: "📜 View History",
+        statusText: "STATUS: <strong>ONLINE</strong> • Express 1-Day Delivery",
+        storyTitle: "Project History",
+        storyDesc: "Created to end slow, expensive, and fragile traditional websites. Built on modern Jamstack.",
+        focusTitle: "Core Development Focus",
+        focusDesc: "Building lightweight web foundations. Maximizing HTML5 efficiency, pure SVG, and automated deployment via GitHub & Cloudflare Pages."
+      },
+      DE: {
+        bio: "Webentwickler & Ökosystem-Architekt. Fokus auf leichtes Zero-JS & lokale Digitalisierung.",
+        navHero: "Story",
+        navStory: "Geschichte",
+        navProgres: "Fortschritt",
+        navHarian: "Tagebuch",
+        navStack: "Technologie",
+        badge: "💡 KMU-Vertriebslösung",
+        heroTitle: "Super schnelle Landingpages<br><span>Direkt mit WhatsApp verbunden</span>",
+        heroDesc: "Viele KMUs verlieren Kunden wegen langsamer Websites.",
+        ctaPrimary: "💬 Jetzt per WhatsApp chatten",
+        ctaSecondary: "📜 Geschichte ansehen",
+        statusText: "STATUS: <strong>ONLINE</strong> • Expressfertigstellung in 1 Tag",
+        storyTitle: "Geschichte des Projekts",
+        storyDesc: "Entwickelt, um die Ära langsamer und teurer herkömmlicher Websites zu beenden.",
+        focusTitle: "Hauptfokus der Entwicklung",
+        focusDesc: "Effiziente Webleistung mit HTML5, reinen SVG-Vektoren und automatischer Bereitstellung."
+      },
+      RU: {
+        bio: "Веб-разработчик и архитектор экосистем. Фокус на лёгком Zero-JS и цифровизации.",
+        navHero: "Story",
+        navStory: "История",
+        navProgres: "Прогресс",
+        navHarian: "Дневник",
+        navStack: "Стек",
+        badge: "💡 Решение для продаж",
+        heroTitle: "Сверхбыстрый лендинг<br><span>Прямое подключение к WhatsApp</span>",
+        heroDesc: "Многие компании теряют клиентов из-за медленных сайтов.",
+        ctaPrimary: "💬 Написать в WhatsApp",
+        ctaSecondary: "📜 История проекта",
+        statusText: "СТАТУС: <strong>ONLINE</strong> • Готовность за 1 день",
+        storyTitle: "История проекта",
+        storyDesc: "Создано, чтобы положить конец эпохе медленных и дорогих сайтов.",
+        focusTitle: "Основной фокус разработки",
+        focusDesc: "Легковесный веб, эффективность HTML5, чистый SVG и автоматический деплой."
+      },
+      ZH: {
+        bio: "Web 开发者与数字生态架构师。专注于轻量级 Zero-JS 与本地业务数字化。",
+        navHero: "Story",
+        navStory: "历史",
+        navProgres: "项目进度",
+        navHarian: "日常日志",
+        navStack: "技术栈",
+        badge: "💡 中小企业销售解决方案",
+        heroTitle: "打造超快速 Landing Page<br><span>无缝直连 WhatsApp</span>",
+        heroDesc: "许多企业因网站卡顿而流失客户。我们提供即时连接方案。",
+        ctaPrimary: "💬 立即 WhatsApp 咨询（10分钟就绪）",
+        ctaSecondary: "📜 查看历史",
+        statusText: "状态: <strong>在线</strong> • 支持1天加急交付",
+        storyTitle: "项目历史",
+        storyDesc: "旨在终结传统网站（WordPress/cPanel）缓慢且昂贵的问题。",
+        focusTitle: "核心开发重点",
+        focusDesc: "打造轻量级 Web 系统，充分利用 HTML5、原生 SVG 以及 GitHub 与 Cloudflare 自动化部署。"
+      }
+    };
+
+    const langBtns = document.querySelectorAll('[data-lang-btn]');
+    langBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        langBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const lang = btn.getAttribute('data-lang-btn');
+        const data = i18n[lang];
+        if (!data) return;
+
+        document.querySelectorAll('[data-key]').forEach(el => {
+          const key = el.getAttribute('data-key');
+          if (data[key]) {
+            el.innerHTML = data[key];
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
