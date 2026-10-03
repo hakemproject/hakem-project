@@ -1,663 +1,204 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="sage">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hakem Project — Digital Ecosystem Architect</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Hakem Project - Auto Builder 19 Juta Website UMKM</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../00-hakem-template/css/themes.css">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* --- THEME SYSTEM (CSS VARIABLES) --- */
-    :root, [data-theme="sage"] {
-      --bg-color: #f6f8f6;
-      --bg-gradient: 
-        radial-gradient(at 0% 0%, rgba(210, 230, 218, 0.55) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(225, 235, 240, 0.45) 0px, transparent 50%),
-        radial-gradient(at 50% 50%, rgba(255, 255, 255, 0.8) 0px, transparent 100%);
-      --card-bg: rgba(255, 255, 255, 0.82);
-      --card-border: rgba(255, 255, 255, 0.9);
-      --text-main: #1e293b;
-      --text-muted: #64748b;
-      --accent: #2d5a3f;
-      --accent-gradient: linear-gradient(135deg, #2d5a3f 0%, #1c3827 100%);
-      --glass-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05);
-      --nav-hover: rgba(0, 0, 0, 0.04);
-      --nav-active-bg: #ffffff;
-      --btn-option-bg: rgba(0, 0, 0, 0.05);
-    }
-
-    [data-theme="lavender"] {
-      --bg-color: #f8f6fc;
-      --bg-gradient: 
-        radial-gradient(at 0% 0%, rgba(233, 213, 255, 0.5) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(224, 231, 255, 0.5) 0px, transparent 50%),
-        radial-gradient(at 50% 50%, rgba(255, 255, 255, 0.85) 0px, transparent 100%);
-      --card-bg: rgba(255, 255, 255, 0.82);
-      --card-border: rgba(255, 255, 255, 0.9);
-      --text-main: #1e1b4b;
-      --text-muted: #6b7280;
-      --accent: #6d28d9;
-      --accent-gradient: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%);
-      --glass-shadow: 0 20px 40px -15px rgba(109, 40, 217, 0.08);
-      --nav-hover: rgba(109, 40, 217, 0.05);
-      --nav-active-bg: #ffffff;
-      --btn-option-bg: rgba(109, 40, 217, 0.06);
-    }
-
-    [data-theme="midnight"] {
-      --bg-color: #0b0f17;
-      --bg-gradient: 
-        radial-gradient(at 0% 0%, rgba(30, 41, 59, 0.7) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(15, 23, 42, 0.9) 0px, transparent 50%);
-      --card-bg: rgba(15, 23, 42, 0.75);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --accent: #10b981;
-      --accent-gradient: linear-gradient(135deg, #059669 0%, #047857 100%);
-      --glass-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-      --nav-hover: rgba(255, 255, 255, 0.05);
-      --nav-active-bg: rgba(255, 255, 255, 0.1);
-      --btn-option-bg: rgba(255, 255, 255, 0.08);
-    }
-
-    body {
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      background-color: var(--bg-color);
-      background-image: var(--bg-gradient);
-      background-attachment: fixed;
-      color: var(--text-main);
-      min-height: 100vh;
-      padding: 32px 20px;
-      line-height: 1.6;
-      transition: background 0.4s ease, color 0.4s ease;
-    }
-
-    .container {
-      max-width: 1140px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 28px;
-    }
-
-    @media (max-width: 868px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Glassmorphic Card */
-    .glass-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      box-shadow: var(--glass-shadow);
-      padding: 28px;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background 0.4s ease;
-    }
-
-    .glass-card:hover {
-      transform: translateY(-2px);
-    }
-
-    /* Sidebar Styling */
-    .sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      height: fit-content;
-    }
-
-    .profile-header {
-      text-align: center;
-    }
-
-    .avatar-container {
-      position: relative;
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 16px;
-    }
-
-    .avatar-icon {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: var(--accent-gradient);
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      font-weight: 700;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
-      border: 3px solid rgba(255, 255, 255, 0.9);
-      transition: background 0.4s ease;
-    }
-
-    .status-dot {
-      position: absolute;
-      bottom: 2px;
-      right: 2px;
-      width: 14px;
-      height: 14px;
-      background-color: #10b981;
-      border: 2.5px solid #ffffff;
-      border-radius: 50%;
-      box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
-    }
-
-    .status-dot::after {
-      content: '';
-      position: absolute;
-      top: -2.5px;
-      left: -2.5px;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: 2px solid #10b981;
-      animation: pulse-ring 2s infinite cubic-bezier(0.215, 0.61, 0.35, 1);
-    }
-
-    @keyframes pulse-ring {
-      0% { transform: scale(0.9); opacity: 0.8; }
-      100% { transform: scale(2.2); opacity: 0; }
-    }
-
-    .profile-name {
-      font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-
-    .profile-subname {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 8px;
-    }
-
-    .profile-bio {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* Nav Links (Sesuai Asli) */
-    .nav-menu {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .nav-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 16px;
-      border-radius: 14px;
-      color: var(--text-muted);
-      font-weight: 500;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .nav-item:hover {
-      background: var(--nav-hover);
-      color: var(--text-main);
-    }
-
-    .nav-item.active {
-      background: var(--nav-active-bg);
-      color: var(--accent);
-      font-weight: 700;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    }
-
-    .nav-icon {
-      width: 18px;
-      height: 18px;
-    }
-
-    /* Controls Section */
-    .sidebar-controls {
-      border-top: 1px solid rgba(150, 150, 150, 0.15);
-      padding-top: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .control-label {
-      font-size: 0.7rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .btn-option {
-      background: var(--btn-option-bg);
-      border: 1px solid transparent;
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .btn-option:hover {
-      color: var(--text-main);
-    }
-
-    .btn-option.active {
-      background: var(--accent);
-      color: #ffffff;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    /* Main Content Layout */
-    .main-content {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(16, 185, 129, 0.1);
-      color: var(--accent);
-      padding: 6px 14px;
-      border-radius: 100px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      width: fit-content;
-      margin-bottom: 16px;
-    }
-
-    .badge-dot {
-      width: 8px;
-      height: 8px;
-      background-color: var(--accent);
-      border-radius: 50%;
-    }
-
-    .hero-title {
-      font-size: 2.25rem;
-      font-weight: 800;
-      line-height: 1.25;
-      letter-spacing: -0.03em;
-      margin-bottom: 16px;
-    }
-
-    .hero-title span {
-      color: var(--accent);
-    }
-
-    .hero-desc {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 680px;
-      margin-bottom: 24px;
-    }
-
-    /* CTA & Status Group */
-    .cta-group {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .btn-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent-gradient);
-      color: #ffffff;
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      box-shadow: 0 8px 18px -4px rgba(0, 0, 0, 0.2);
-      transition: all 0.25s ease;
-      width: fit-content;
-    }
-
-    .btn-cta:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.1);
-    }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--btn-option-bg);
-      color: var(--text-main);
-      border: 1px solid var(--card-border);
-      padding: 12px 20px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-
-    .btn-secondary:hover {
-      background: var(--nav-hover);
-      transform: translateY(-2px);
-    }
-
-    .status-indicator {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-top: 8px;
-    }
-
-    .status-dot-inline {
-      width: 8px;
-      height: 8px;
-      background-color: #10b981;
-      border-radius: 50%;
-      box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
-    }
-
-    /* Story Card Styling */
-    .story-card {
-      border-left: 4px solid var(--accent);
-    }
-
-    .card-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .card-text {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
+    /* Styling khusus area simulator HP (Live Preview) */
+    .phone-mockup {
+      width: 380px;
+      height: 720px;
+      border: 12px solid #1e293b;
+      border-radius: 40px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      overflow-y: auto;
+      background-color: var(--color-bg, #f8fafc);
     }
   </style>
 </head>
-<body>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
 
-  <div class="container">
-    <!-- SIDEBAR NAV (DIKUNCI SESUAI ASLI - TIDAK DIUBAH) -->
-    <aside class="glass-card sidebar">
-      <div class="profile-header">
-        <div class="avatar-container">
-          <div class="avatar-icon">H</div>
-          <div class="status-dot" title="Ecosystem Online"></div>
-        </div>
-        <h1 class="profile-name">Hakem Project</h1>
-        <div class="profile-subname">LUKMANUL HAKIM</div>
-        <p class="profile-bio" data-key="bio">Web Developer & Ecosystem Architect. Focus on Lightweight Zero-JS & Local Business Digitization.</p>
+  <!-- Header App Bar -->
+  <header class="border-b border-slate-800 bg-slate-950 p-4 sticky top-0 z-50 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <span class="text-2xl">⚡</span>
+      <div>
+        <h1 class="font-extrabold text-lg text-white">Hakem Project Builder</h1>
+        <p class="text-xs text-slate-400">Gerakan 19 Juta Website UMKM Indonesia</p>
+      </div>
+    </div>
+    <button onclick="exportJSON()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-4 py-2 rounded-lg transition shadow-lg">
+      💾 Simpan & Terbitkan Web
+    </button>
+  </header>
+
+  <!-- Main Grid Workspace (Split Screen: Form vs Live Preview) -->
+  <main class="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 max-w-7xl mx-auto w-full">
+    
+    <!-- LEFT PANEL: Form Inputs (5 Columns) -->
+    <div class="lg:col-span-5 bg-slate-800/60 border border-slate-700/60 p-6 rounded-2xl space-y-5 overflow-y-auto max-h-[80vh]">
+      <h2 class="font-bold text-md text-amber-400 border-b border-slate-700 pb-2">1. Data Profil Usaha</h2>
+      
+      <div>
+        <label class="block text-xs font-semibold text-slate-300 mb-1">Nama UMKM / Toko</label>
+        <input type="text" id="in_name" value="Seblak Prasmanan Mang Ujang" oninput="updatePreview()" 
+               class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl text-sm text-white focus:border-amber-400 focus:outline-none">
       </div>
 
-      <nav class="nav-menu">
-        <a href="#hero" class="nav-item active">
-          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-          <span data-key="navHero">Story</span>
-        </a>
-        <a href="#story" class="nav-item">
-          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-          <span data-key="navStory">Sejarah</span>
-        </a>
-        <a href="#progres" class="nav-item">
-          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-          <span data-key="navProgres">Progres Proyek</span>
-        </a>
-        <a href="#harian" class="nav-item">
-          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-          <span data-key="navHarian">Buku Harian</span>
-        </a>
-        <a href="#stack" class="nav-item">
-          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-          <span data-key="navStack">Perangkat & Stack</span>
-        </a>
-      </nav>
+      <div>
+        <label class="block text-xs font-semibold text-slate-300 mb-1">Kategori & Skema Warna (12 Industri)</label>
+        <select id="in_theme" onchange="updatePreview()" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl text-sm text-white focus:border-amber-400 focus:outline-none">
+          <option value="pedas" selected>🔥 Kuliner Pedas & Gurih (Merah Cabe)</option>
+          <option value="bakery">🥐 Kuliner Manis & Bakery (Cokelat Warm)</option>
+          <option value="coffee">☕ Minuman & Coffee Shop (Kopi Dark)</option>
+          <option value="beauty">✨ Kecantikan & Skincare (Rose Pink)</option>
+          <option value="sage">🌿 Fashion Muslim & Hijab (Sage Green)</option>
+          <option value="distro">🧢 Fashion Distro & Streetwear (Charcoal Black)</option>
+          <option value="herbal">🌱 Kesehatan & Herbal (Hijau Daun)</option>
+          <option value="jasa">🛠️ Jasa & Service Teknis (Biru Benhur)</option>
+          <option value="otomotif">🏍️ Otomotif & Bengkel (Dark Slate)</option>
+          <option value="tanaman">🌾 Pertanian & Peternakan (Earth Green)</option>
+          <option value="craft">🎨 Kerajinan & Souvenir (Cokelat Bata)</option>
+          <option value="edukasi">📚 Edukasi & Bimbel (Deep Blue)</option>
+        </select>
+      </div>
 
-      <div class="sidebar-controls">
+      <div class="grid grid-cols-2 gap-3">
         <div>
-          <div class="control-label">Skema Warna</div>
-          <div class="btn-group">
-            <button class="btn-option active" data-theme-btn="sage">Sage</button>
-            <button class="btn-option" data-theme-btn="lavender">Lavender</button>
-            <button class="btn-option" data-theme-btn="midnight">Midnight</button>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Nomor WhatsApp</label>
+          <input type="text" id="in_wa" value="6281234567890" oninput="updatePreview()" 
+                 class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl text-sm text-white focus:border-amber-400 focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Slug URL</label>
+          <input type="text" id="in_slug" value="seblak-mang-ujang" 
+                 class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl text-sm text-white focus:border-amber-400 focus:outline-none">
+        </div>
+      </div>
+
+      <h2 class="font-bold text-md text-amber-400 border-b border-slate-700 pb-2 pt-3">2. Penawaran Utama (Hero)</h2>
+      
+      <div>
+        <label class="block text-xs font-semibold text-slate-300 mb-1">Headline Utama</label>
+        <input type="text" id="in_headline" value="Seblak Prasmanan Toping Melimpah Mulai 10 Ribuan!" oninput="updatePreview()" 
+               class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl text-sm text-white focus:border-amber-400 focus:outline-none">
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold text-slate-300 mb-1">Sub-Headline</label>
+        <textarea id="in_subheadline" rows="2" oninput="updatePreview()" 
+                  class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl text-sm text-white focus:border-amber-400 focus:outline-none">Diolah dengan bumbu rempah asli racikan sendiri, pedas gurih nagih!</textarea>
+      </div>
+
+      <h2 class="font-bold text-md text-amber-400 border-b border-slate-700 pb-2 pt-3">3. Lokasi & Area</h2>
+      
+      <div>
+        <label class="block text-xs font-semibold text-slate-300 mb-1">Alamat Lengkap</label>
+        <input type="text" id="in_address" value="Jl. Gubeng Kertajaya No. 12, Surabaya" oninput="updatePreview()" 
+               class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded-xl text-sm text-white focus:border-amber-400 focus:outline-none">
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: Mobile Phone Live Simulator (7 Columns) -->
+    <div class="lg:col-span-7 flex flex-col items-center justify-center p-4 bg-slate-950 rounded-2xl border border-slate-800 relative">
+      <div class="text-xs font-semibold text-slate-400 mb-3 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        Pratinjau Langsung (Mobile Responsive View)
+      </div>
+
+      <!-- Simulator Device Frame -->
+      <div id="previewContainer" class="phone-mockup text-slate-800 p-4 relative" data-theme="pedas">
+        
+        <!-- Header status -->
+        <div class="bg-white p-3 rounded-xl shadow-sm mb-4 flex justify-between items-center">
+          <span id="pv_name" class="font-extrabold text-sm text-slate-900">Seblak Prasmanan Mang Ujang</span>
+          <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-1 rounded-full">🟢 SIAP MELAYANI</span>
+        </div>
+
+        <!-- Hero Area -->
+        <div class="text-center py-4">
+          <h1 id="pv_headline" class="font-extrabold text-lg leading-tight mb-2">Seblak Prasmanan Toping Melimpah Mulai 10 Ribuan!</h1>
+          <p id="pv_subheadline" class="text-xs text-slate-600">Diolah dengan bumbu rempah asli racikan sendiri, pedas gurih nagih!</p>
+        </div>
+
+        <!-- Sample Catalog Card -->
+        <div class="bg-white p-4 rounded-2xl shadow-sm mb-4">
+          <h3 class="font-bold text-xs mb-2 text-slate-900">Menu Populer</h3>
+          <div class="flex justify-between items-center py-2 border-b border-slate-100 text-xs">
+            <div>
+              <strong class="block text-slate-800">Paket Komplit Pedas</strong>
+              <span class="text-[10px] text-slate-400">Kerupuk, Baso, Sosis, Ceker, Telur</span>
+            </div>
+            <span class="font-extrabold text-[var(--color-primary)]">Rp 18.000</span>
           </div>
         </div>
 
-        <div>
-          <div class="control-label">Pilih Bahasa</div>
-          <div class="btn-group">
-            <button class="btn-option active" data-lang-btn="ID">ID</button>
-            <button class="btn-option" data-lang-btn="EN">EN</button>
-            <button class="btn-option" data-lang-btn="DE">DE</button>
-            <button class="btn-option" data-lang-btn="RU">RU</button>
-            <button class="btn-option" data-lang-btn="ZH">ZH</button>
-          </div>
+        <!-- Location Card -->
+        <div class="bg-white p-4 rounded-2xl shadow-sm mb-16 text-xs">
+          <h3 class="font-bold mb-1 text-slate-900">📍 Alamat Operasional</h3>
+          <p id="pv_address" class="text-slate-600">Jl. Gubeng Kertajaya No. 12, Surabaya</p>
         </div>
+
+        <!-- Sticky Floating CTA Button -->
+        <div class="absolute bottom-3 left-3 right-3">
+          <a id="pv_wa_btn" href="#" class="block bg-emerald-500 hover:bg-emerald-600 text-white text-center font-extrabold text-xs py-3 rounded-xl shadow-lg">
+            💬 Chat via WhatsApp Sekarang
+          </a>
+        </div>
+
       </div>
-    </aside>
+    </div>
 
-    <!-- MAIN CONTENT AREA (PENYESUAIAN KONTEN KANAN) -->
-    <main class="main-content">
+  </main>
 
-      <!-- 1. HERO / STORY SECTION -->
-      <section id="hero" class="glass-card">
-        <div class="badge">
-          <span class="badge-dot"></span>
-          <span data-key="badge">💡 Solusi Penjualan UMKM</span>
-        </div>
-        
-        <h2 class="hero-title" data-key="heroTitle">
-          Bikin Landing Page Super Cepat<br>
-          <span>Langsung Nyambung ke WhatsApp</span>
-        </h2>
-        
-        <p class="hero-desc" data-key="heroDesc">
-          Banyak UMKM kehilangan calon pelanggan karena website lama yang lemot dan rumit. Kami ubah alur jualan Anda menjadi serba instan: begitu pengunjung klik, mereka langsung terhubung ke WhatsApp Anda tanpa hambatan.
-        </p>
-
-        <!-- CTA BUTTONS -->
-        <div class="cta-group">
-          <a href="https://wa.me/628xxxxxxxx?text=Halo,%20saya%20mau%20pesan%20landing%20page" class="btn-cta" data-key="ctaPrimary">
-            💬 Chat WhatsApp Sekarang (10 Menit Siap)
-          </a>
-          <a href="#story" class="btn-secondary" data-key="ctaSecondary">
-            📜 Lihat Sejarah
-          </a>
-        </div>
-
-        <div class="status-indicator">
-          <span class="status-dot-inline"></span>
-          <span data-key="statusText">STATUS: <strong>ONLINE</strong> • Siap Pengerjaan Express 1 Hari Selesai</span>
-        </div>
-      </section>
-
-      <!-- 2. SEJARAH SECTION -->
-      <section id="story" class="glass-card story-card">
-        <div class="card-title">
-          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-          <span data-key="storyTitle">Sejarah Kelahiran Projek</span>
-        </div>
-        <p class="card-text" data-key="storyDesc">
-          Diciptakan untuk mengakhiri era website konvensional (WordPress/cPanel) yang lambat, mahal, dan rentan bermasalah. Berbasis teknologi <strong>Jamstack modern (Zero-JS + Cloudflare Pages)</strong>, website Anda kini memiliki kecepatan muat tinggi dengan biaya server <strong>Rp0/bulan</strong> selamanya.
-        </p>
-      </section>
-
-      <!-- 3. FOKUS UTAMA SECTION -->
-      <section class="glass-card">
-        <div class="card-title">
-          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-          <span data-key="focusTitle">Fokus Utama Pengembangan</span>
-        </div>
-        <p class="card-text" data-key="focusDesc">
-          Membuat fondasi sistem web yang tidak membebani perangkat pengguna. Memaksimalkan efisiensi HTML5, SVG Murni, dan deployment otomatis melalui GitHub & Cloudflare Pages.
-        </p>
-      </section>
-
-    </main>
-  </div>
-
-  <!-- JAVASCRIPT SYSTEM -->
+  <!-- JavaScript Reactive Engine -->
   <script>
-    // 1. FITUR TUKAR TEMA WARNA
-    const themeBtns = document.querySelectorAll('[data-theme-btn]');
-    themeBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        themeBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const theme = btn.getAttribute('data-theme-btn');
-        document.documentElement.setAttribute('data-theme', theme);
-      });
-    });
+    function updatePreview() {
+      // 1. Ambil nilai input
+      const name = document.getElementById('in_name').value;
+      const theme = document.getElementById('in_theme').value;
+      const headline = document.getElementById('in_headline').value;
+      const subheadline = document.getElementById('in_subheadline').value;
+      const address = document.getElementById('in_address').value;
+      const wa = document.getElementById('in_wa').value;
 
-    // 2. FITUR MULTI-BAHASA (ID, EN, DE, RU, ZH) - MENYESUAIKAN KEY ASLI
-    const i18n = {
-      ID: {
-        bio: "Web Developer & Ecosystem Architect. Focus on Lightweight Zero-JS & Local Business Digitization.",
-        navHero: "Story",
-        navStory: "Sejarah",
-        navProgres: "Progres Proyek",
-        navHarian: "Buku Harian",
-        navStack: "Perangkat & Stack",
-        badge: "💡 Solusi Penjualan UMKM",
-        heroTitle: "Bikin Landing Page Super Cepat<br><span>Langsung Nyambung ke WhatsApp</span>",
-        heroDesc: "Banyak UMKM kehilangan calon pelanggan karena website lama yang lemot dan rumit. Kami ubah alur jualan Anda menjadi serba instan: begitu pengunjung klik, mereka langsung terhubung ke WhatsApp Anda tanpa hambatan.",
-        ctaPrimary: "💬 Chat WhatsApp Sekarang (10 Menit Siap)",
-        ctaSecondary: "📜 Lihat Sejarah",
-        statusText: "STATUS: <strong>ONLINE</strong> • Siap Pengerjaan Express 1 Hari Selesai",
-        storyTitle: "Sejarah Kelahiran Projek",
-        storyDesc: "Diciptakan untuk mengakhiri era website konvensional (WordPress/cPanel) yang lambat, mahal, dan rentan bermasalah. Berbasis teknologi <strong>Jamstack modern (Zero-JS + Cloudflare Pages)</strong>, website Anda kini memiliki kecepatan muat tinggi dengan biaya server <strong>Rp0/bulan</strong> selamanya.",
-        focusTitle: "Fokus Utama Pengembangan",
-        focusDesc: "Membuat fondasi sistem web yang tidak membebani perangkat pengguna. Memaksimalkan efisiensi HTML5, SVG Murni, dan deployment otomatis melalui GitHub & Cloudflare Pages."
-      },
-      EN: {
-        bio: "Web Developer & Ecosystem Architect. Focusing on Lightweight Zero-JS & Local Business Digitization.",
-        navHero: "Story",
-        navStory: "History",
-        navProgres: "Project Progress",
-        navHarian: "Daily Logs",
-        navStack: "Tools & Stack",
-        badge: "💡 MSME Sales Solution",
-        heroTitle: "Build Ultra-Fast Landing Pages<br><span>Directly Connected to WhatsApp</span>",
-        heroDesc: "Many MSMEs lose potential buyers due to slow and complex old websites. We make your sales flow instant.",
-        ctaPrimary: "💬 Chat WhatsApp Now (Ready in 10 Mins)",
-        ctaSecondary: "📜 View History",
-        statusText: "STATUS: <strong>ONLINE</strong> • Express 1-Day Delivery",
-        storyTitle: "Project History",
-        storyDesc: "Created to end slow, expensive, and fragile traditional websites. Built on modern Jamstack.",
-        focusTitle: "Core Development Focus",
-        focusDesc: "Building lightweight web foundations. Maximizing HTML5 efficiency, pure SVG, and automated deployment via GitHub & Cloudflare Pages."
-      },
-      DE: {
-        bio: "Webentwickler & Ökosystem-Architekt. Fokus auf leichtes Zero-JS & lokale Digitalisierung.",
-        navHero: "Story",
-        navStory: "Geschichte",
-        navProgres: "Fortschritt",
-        navHarian: "Tagebuch",
-        navStack: "Technologie",
-        badge: "💡 KMU-Vertriebslösung",
-        heroTitle: "Super schnelle Landingpages<br><span>Direkt mit WhatsApp verbunden</span>",
-        heroDesc: "Viele KMUs verlieren Kunden wegen langsamer Websites.",
-        ctaPrimary: "💬 Jetzt per WhatsApp chatten",
-        ctaSecondary: "📜 Geschichte ansehen",
-        statusText: "STATUS: <strong>ONLINE</strong> • Expressfertigstellung in 1 Tag",
-        storyTitle: "Geschichte des Projekts",
-        storyDesc: "Entwickelt, um die Ära langsamer und teurer herkömmlicher Websites zu beenden.",
-        focusTitle: "Hauptfokus der Entwicklung",
-        focusDesc: "Effiziente Webleistung mit HTML5, reinen SVG-Vektoren und automatischer Bereitstellung."
-      },
-      RU: {
-        bio: "Веб-разработчик и архитектор экосистем. Фокус на лёгком Zero-JS и цифровизации.",
-        navHero: "Story",
-        navStory: "История",
-        navProgres: "Прогресс",
-        navHarian: "Дневник",
-        navStack: "Стек",
-        badge: "💡 Решение для продаж",
-        heroTitle: "Сверхбыстрый лендинг<br><span>Прямое подключение к WhatsApp</span>",
-        heroDesc: "Многие компании теряют клиентов из-за медленных сайтов.",
-        ctaPrimary: "💬 Написать в WhatsApp",
-        ctaSecondary: "📜 История проекта",
-        statusText: "СТАТУС: <strong>ONLINE</strong> • Готовность за 1 день",
-        storyTitle: "История проекта",
-        storyDesc: "Создано, чтобы положить конец эпохе медленных и дорогих сайтов.",
-        focusTitle: "Основной фокус разработки",
-        focusDesc: "Легковесный веб, эффективность HTML5, чистый SVG и автоматический деплой."
-      },
-      ZH: {
-        bio: "Web 开发者与数字生态架构师。专注于轻量级 Zero-JS 与本地业务数字化。",
-        navHero: "Story",
-        navStory: "历史",
-        navProgres: "项目进度",
-        navHarian: "日常日志",
-        navStack: "技术栈",
-        badge: "💡 中小企业销售解决方案",
-        heroTitle: "打造超快速 Landing Page<br><span>无缝直连 WhatsApp</span>",
-        heroDesc: "许多企业因网站卡顿而流失客户。我们提供即时连接方案。",
-        ctaPrimary: "💬 立即 WhatsApp 咨询（10分钟就绪）",
-        ctaSecondary: "📜 查看历史",
-        statusText: "状态: <strong>在线</strong> • 支持1天加急交付",
-        storyTitle: "项目历史",
-        storyDesc: "旨在终结传统网站（WordPress/cPanel）缓慢且昂贵的问题。",
-        focusTitle: "核心开发重点",
-        focusDesc: "打造轻量级 Web 系统，充分利用 HTML5、原生 SVG 以及 GitHub 与 Cloudflare 自动化部署。"
-      }
-    };
+      // 2. Render teks secara instan ke layar simulasi HP
+      document.getElementById('pv_name').innerText = name;
+      document.getElementById('pv_headline').innerText = headline;
+      document.getElementById('pv_subheadline').innerText = subheadline;
+      document.getElementById('pv_address').innerText = address;
+      document.getElementById('pv_wa_btn').href = `https://wa.me/${wa}`;
 
-    const langBtns = document.querySelectorAll('[data-lang-btn]');
-    langBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        langBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const lang = btn.getAttribute('data-lang-btn');
-        const data = i18n[lang];
-        if (!data) return;
+      // 3. Inject data-theme secara dinamis ke simulator
+      document.getElementById('previewContainer').setAttribute('data-theme', theme);
+    }
 
-        document.querySelectorAll('[data-key]').forEach(el => {
-          const key = el.getAttribute('data-key');
-          if (data[key]) {
-            el.innerHTML = data[key];
-          }
-        });
-      });
-    });
+    function exportJSON() {
+      const config = {
+        id: "umkm-" + Date.now(),
+        slug: document.getElementById('in_slug').value,
+        theme: document.getElementById('in_theme').value,
+        name: document.getElementById('in_name').value,
+        headline: document.getElementById('in_headline').value,
+        subheadline: document.getElementById('in_subheadline').value,
+        whatsapp_number: document.getElementById('in_wa').value,
+        address_text: document.getElementById('in_address').value
+      };
+
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(config, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `${config.slug}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    }
+
+    // Inisialisasi tampilan awal
+    updatePreview();
   </script>
 </body>
 </html>
