@@ -62,7 +62,7 @@ function exportSingleFileHTML() {
   <meta name="nadi-node-id" content="${d.id}">
   <meta name="nadi-node-category" content="${d.theme}">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://raw.githubusercontent.com/hakemproject/hakemproject/main/projects/web-builder/assets/themes.css">
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/hakemproject/hakemproject/main/projects/nadi/builder/assets/themes.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
