@@ -1,0 +1,6 @@
+[submodule "client-sites/holland-bangka"]
+	path = client-sites/holland-bangka
+	url = https://github.com/hakemproject/holland-bangka.git
+[submodule "client-sites/pusat-wifi"]
+	path = client-sites/pusat-wifi
+	url = https://github.com/hakemproject/pusat-wifi.git

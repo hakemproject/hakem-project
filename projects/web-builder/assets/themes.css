@@ -1,0 +1,20 @@
+﻿:root {
+  --color-primary: #047857;
+  --color-primary-light: #E6F4EA;
+  --color-accent: #B45309;
+  --color-bg: #F8FAFC;
+  --color-text: #1F2937;
+  --color-card: #FFFFFF;
+}
+html[data-theme="pedas"]    { --color-primary: #DC2626; --color-primary-light: #FEE2E2; --color-accent: #F59E0B; --color-bg: #FFFBEB; }
+html[data-theme="bakery"]   { --color-primary: #7C2D12; --color-primary-light: #FFEDD5; --color-accent: #EA580C; --color-bg: #FAFAF9; }
+html[data-theme="coffee"]   { --color-primary: #451A03; --color-primary-light: #FEF3C7; --color-accent: #D97706; --color-bg: #FFFFFF; }
+html[data-theme="beauty"]   { --color-primary: #E11D48; --color-primary-light: #FFF1F2; --color-accent: #D97706; --color-bg: #FFFFFF; }
+html[data-theme="sage"]     { --color-primary: #047857; --color-primary-light: #E6F4EA; --color-accent: #B45309; --color-bg: #F8FAFC; }
+html[data-theme="distro"]   { --color-primary: #18181B; --color-primary-light: #E4E4E7; --color-accent: #2563EB; --color-bg: #FAFAFA; }
+html[data-theme="herbal"]   { --color-primary: #15803D; --color-primary-light: #DCFCE7; --color-accent: #EAB308; --color-bg: #F0FDF4; }
+html[data-theme="jasa"]     { --color-primary: #2563EB; --color-primary-light: #EFF6FF; --color-accent: #EAB308; --color-bg: #F9FAFB; }
+html[data-theme="otomotif"] { --color-primary: #0F172A; --color-primary-light: #E2E8F0; --color-accent: #EF4444; --color-bg: #F1F5F9; }
+html[data-theme="tanaman"]  { --color-primary: #166534; --color-primary-light: #F7FEDD; --color-accent: #854D0E; --color-bg: #FFFFFF; }
+html[data-theme="craft"]    { --color-primary: #9A3412; --color-primary-light: #FFEDD5; --color-accent: #15803D; --color-bg: #FFFBEB; }
+html[data-theme="edukasi"]  { --color-primary: #1E40AF; --color-primary-light: #E0F2FE; --color-accent: #CA8A04; --color-bg: #FAFAFA; }
