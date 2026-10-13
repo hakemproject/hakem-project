@@ -1,3 +1,7 @@
+# ==============================================
+# .gitignore - HakemProject
+# ==============================================
+
 # Node
 node_modules/
 npm-debug.log*
@@ -8,15 +12,53 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
+*.token
+secrets/
+credentials/
+auth.json
+
+# File Teks Sensitif (kecuali README, LICENSE)
+*.txt
+!README.txt
+!LICENSE.txt
+
+# Kredensial & Sertifikat
+*.pem
+*.key
+*.p12
+*.pfx
 
 # Sistem Operasi
 .DS_Store
 Thumbs.db
+Desktop.ini
 
 # Build & Dist
 dist/
 build/
+.cache/
+.temp/
+tmp/
 
 # IDE
 .vscode/
 .idea/
+*.swp
+*.swo
+
+# Backup & Arsip
+_backup/
+_arsip/
+*.bak
+*.old
+
+# Log
+*.log
+logs/
+
+# Node package lock (opsional, aktifkan jika perlu)
+# package-lock.json
+# yarn.lock
+
+# Cloudflare
+.wrangler/
