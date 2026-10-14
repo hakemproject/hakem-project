@@ -1,0 +1,17 @@
+﻿name = "mynadi-api"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+[[d1_databases]]
+binding = "mynadi_db"
+database_name = "mynadi-db"
+database_id = "dea5de95-4601-477d-a4a5-95563b883279"
+
+# R2 Bucket (akan diisi nanti setelah bucket dibuat)
+# [[r2_buckets]]
+# binding = "R2"
+# bucket_name = "nadi-images"
+
+# Environment variables
+[vars]
+ENVIRONMENT = "development"
