@@ -1,0 +1,125 @@
+/* ==============================================
+   Hakem Media Builder - Theme Tokens
+   8 tema premium untuk preview
+   ============================================== */
+
+:root {
+  --theme-bg: #121413;
+  --theme-text: #e2e7e1;
+  --theme-accent: #d97706;
+  --theme-card: #1c2624;
+}
+
+/* Theme tokens applied via data-theme pada preview-content */
+[data-theme="premium-dark"] {
+  --pv-bg: #121413;
+  --pv-text: #e2e7e1;
+  --pv-accent: #d97706;
+  --pv-card: #1c2624;
+}
+
+[data-theme="sage"] {
+  --pv-bg: #f6f7f4;
+  --pv-text: #1c2624;
+  --pv-accent: #2c5a47;
+  --pv-card: #ffffff;
+}
+
+[data-theme="rose"] {
+  --pv-bg: #fff5f7;
+  --pv-text: #2c1a1f;
+  --pv-accent: #e11d48;
+  --pv-card: #ffffff;
+}
+
+[data-theme="navy"] {
+  --pv-bg: #f0f4fa;
+  --pv-text: #0f172a;
+  --pv-accent: #1e3a8a;
+  --pv-card: #ffffff;
+}
+
+[data-theme="amber"] {
+  --pv-bg: #fffbeb;
+  --pv-text: #2c1e0a;
+  --pv-accent: #d97706;
+  --pv-card: #ffffff;
+}
+
+[data-theme="violet"] {
+  --pv-bg: #faf5ff;
+  --pv-text: #1e1b4b;
+  --pv-accent: #7c3aed;
+  --pv-card: #ffffff;
+}
+
+[data-theme="teal"] {
+  --pv-bg: #f0fdfa;
+  --pv-text: #042f2e;
+  --pv-accent: #0d9488;
+  --pv-card: #ffffff;
+}
+
+[data-theme="slate"] {
+  --pv-bg: #f8fafc;
+  --pv-text: #0f172a;
+  --pv-accent: #334155;
+  --pv-card: #ffffff;
+}
+
+/* Apply theme to preview elements */
+.preview-content {
+  background: var(--pv-bg);
+  color: var(--pv-text);
+  transition: all 0.3s ease;
+}
+
+.preview-content .preview-nav {
+  background: var(--pv-bg);
+  color: var(--pv-text);
+  border-bottom: 1px solid rgba(128,128,128,0.15);
+}
+
+.preview-content .preview-hero,
+.preview-content .preview-about,
+.preview-content .preview-services {
+  background: var(--pv-bg);
+  color: var(--pv-text);
+}
+
+.preview-content .preview-hero-content h1,
+.preview-content .preview-about h2,
+.preview-content .preview-services h2 {
+  color: var(--pv-text);
+}
+
+.preview-content .preview-about h2,
+.preview-content .preview-services h2 {
+  color: var(--pv-accent);
+}
+
+.preview-content .preview-cta {
+  background: var(--pv-accent);
+  color: white;
+}
+
+.preview-content .service-card {
+  background: var(--pv-card);
+  border-left-color: var(--pv-accent);
+  color: var(--pv-text);
+}
+
+.preview-content .preview-footer {
+  background: var(--pv-bg);
+  color: var(--pv-text);
+  opacity: 0.6;
+}
+
+.preview-content .preview-hero-photo {
+  background: linear-gradient(135deg, var(--pv-card), var(--pv-bg));
+}
+
+/* Transition smooth antar tema */
+.preview-content * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
