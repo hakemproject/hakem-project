@@ -176,13 +176,13 @@ section { padding: 60px 0; }
 }
 .timeline-item p { color: #68736e; font-size: 0.85rem; }
 
-/* STORYBOOK */
-.storybook-grid {
+/* BOOK GRID */
+.book-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
 }
-.storybook-item {
+.book-item {
   background: white;
   border: 1px solid #e2e7e1;
   border-radius: 14px;
@@ -190,14 +190,35 @@ section { padding: 60px 0; }
   text-decoration: none;
   color: inherit;
   transition: all 0.2s;
+  display: block;
 }
-.storybook-item:hover { border-color: #6d9a81; }
-.storybook-item h4 {
+.book-item:hover { border-color: #6d9a81; transform: translateY(-2px); }
+.book-item h4 {
   font-size: 0.9rem;
   margin-bottom: 6px;
   letter-spacing: -0.01em;
 }
-.storybook-item p { font-size: 0.78rem; color: #68736e; }
+.book-item p { font-size: 0.78rem; color: #68736e; margin: 0; }
+
+/* BOOK FEATURED */
+.book-featured {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #2c5a47, #245d46);
+  color: white;
+  border: none;
+  padding: 28px;
+}
+.book-featured h4 {
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.book-featured p { color: #c4d5c8; font-size: 0.88rem; margin: 0; }
+.book-featured:hover {
+  border-color: #2c5a47;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(44, 90, 71, 0.25);
+}
 
 /* FOOTER */
 footer {
@@ -240,7 +261,7 @@ footer small { font-size: 0.75rem; }
     <nav>
       <a href="#proyek">Proyek</a>
       <a href="#timeline">Perjalanan</a>
-      <a href="#storybook">Storybook</a>
+      <a href="/book/">Book</a>
     </nav>
   </div>
 </header>
@@ -317,6 +338,11 @@ footer small { font-size: 0.75rem; }
         <p><code>mynadi.pages.dev/builder</code> dan <code>hakem-media.pages.dev</code> — dua produk inti NADI resmi aktif.</p>
       </div>
       <div class="timeline-item">
+        <div class="timeline-date">15 Oktober 2026</div>
+        <h4>Master Doc v3 & Book Live</h4>
+        <p>Buku induk 18 bab (61 KB) selesai. Book interaktif live di <code>/book/</code>.</p>
+      </div>
+      <div class="timeline-item">
         <div class="timeline-date">Berikutnya · Fase 2</div>
         <h4>Backend & 19 Juta NADI Node</h4>
         <p>Cloudflare Workers + D1 + R2. Target: 19 juta NADI Node (website UMKM) dengan arsitektur multi-tenant.</p>
@@ -324,34 +350,42 @@ footer small { font-size: 0.75rem; }
     </div>
   </section>
 
-  <!-- STORYBOOK -->
-  <section id="storybook">
-    <p class="section-title">STORYBOOK & DOKUMENTASI</p>
+  <!-- BOOK -->
+  <section id="book">
+    <p class="section-title">BOOK & DOKUMENTASI</p>
     <h2 class="section-heading">Semua keputusan tercatat. Tidak ada yang hilang.</h2>
-    <div class="storybook-grid">
-      <a href="/docs/01_SHARED/PROJECT_PHILOSOPHY.md" class="storybook-item">
+    <div class="book-grid">
+      <a href="/book/" class="book-item book-featured">
+        <h4>📖 Book Lengkap — 18 Bab</h4>
+        <p>Buku induk ekosistem NADI. Filosofi, strategi, arsitektur, roadmap, decision log, dan konsep masa depan. 61 KB, 100% lengkap dari 3 file diskusi awal.</p>
+      </a>
+      <a href="https://github.com/hakemproject/hakem-project/blob/main/docs/01_SHARED/PROJECT_PHILOSOPHY.md" class="book-item" target="_blank" rel="noopener">
         <h4>📖 Filosofi Proyek</h4>
         <p>Visi, misi, dan prinsip-prinsip pembangunan NADI.</p>
       </a>
-      <a href="/docs/seo/01-seo-master-plan.md" class="storybook-item">
+      <a href="https://github.com/hakemproject/hakem-project/blob/main/docs/seo/01-seo-master-plan.md" class="book-item" target="_blank" rel="noopener">
         <h4>🎯 SEO Master Plan</h4>
         <p>Strategi SEO untuk seluruh ekosistem NADI.</p>
       </a>
-      <a href="/docs/05_TECHNICAL/REFERENCE_ARCHITECTURE.md" class="storybook-item">
+      <a href="https://github.com/hakemproject/hakem-project/blob/main/docs/05_TECHNICAL/REFERENCE_ARCHITECTURE.md" class="book-item" target="_blank" rel="noopener">
         <h4>🏗️ Arsitektur Sistem</h4>
         <p>Cloudflare, D1, R2, dan desain multi-tenant.</p>
       </a>
-      <a href="/docs/06_AI_SYSTEM/ANTI_AMNESIA_SYSTEM.md" class="storybook-item">
+      <a href="https://github.com/hakemproject/hakem-project/blob/main/docs/06_AI_SYSTEM/ANTI_AMNESIA_SYSTEM.md" class="book-item" target="_blank" rel="noopener">
         <h4>🧠 Anti-Amnesia System</h4>
         <p>Sistem dokumentasi lintas AI untuk kelangsungan proyek.</p>
       </a>
-      <a href="/docs/01_SHARED/ROADMAP_SHARED.md" class="storybook-item">
+      <a href="https://github.com/hakemproject/hakem-project/blob/main/docs/01_SHARED/ROADMAP_SHARED.md" class="book-item" target="_blank" rel="noopener">
         <h4>🗺️ Roadmap</h4>
         <p>Peta jalan dari Fase 0 hingga ekosistem global.</p>
       </a>
-      <a href="/docs/01_SHARED/DECISION_LOG.md" class="storybook-item">
+      <a href="https://github.com/hakemproject/hakem-project/blob/main/docs/01_SHARED/DECISION_LOG.md" class="book-item" target="_blank" rel="noopener">
         <h4>📋 Decision Log</h4>
         <p>Semua keputusan penting beserta alasannya.</p>
+      </a>
+      <a href="https://github.com/hakemproject/hakem-project/blob/main/docs/master/MASTER_DOC.md" class="book-item" target="_blank" rel="noopener">
+        <h4>📚 Master Doc (Markdown)</h4>
+        <p>Versi Markdown dari Book — untuk AI dan developer.</p>
       </a>
     </div>
   </section>

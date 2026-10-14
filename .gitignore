@@ -81,3 +81,7 @@ client-sites/**/.git/
 # Generated PDFs (bisa di-generate ulang)
 docs/master/*.pdf
 *.pdf
+# Local backups
+*_backup.html
+*_backup.*
+*.backup
