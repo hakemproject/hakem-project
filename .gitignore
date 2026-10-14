@@ -65,3 +65,16 @@ logs/
 # Test files
 workers/api/test-node.json
 *.test.json
+# Wrangler Cache & Logs
+.wrangler/
+workers/**/.wrangler/
+
+# Test Files
+test-*.json
+*_test.js
+
+# Arsip
+_arsip/
+
+# .git Submodules (nested)
+client-sites/**/.git/
