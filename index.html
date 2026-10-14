@@ -1,0 +1,371 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f6f7f4">
+<title>HakemProject — Digital Holding Ecosystem</title>
+<meta name="description" content="Induk proyek digital Lukmanul Hakim: NADI, Web Builder, Hakem Media.">
+<link rel="icon" href="/shared/assets/favicon.svg">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f6f7f4;
+  color: #1c2624;
+  line-height: 1.6;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* HEADER */
+header {
+  padding: 32px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e7e1;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-mark {
+  width: 40px; height: 40px;
+  background: #2c5a47;
+  color: white;
+  border-radius: 12px;
+  display: grid; place-items: center;
+  font-weight: 900; font-size: 1.1rem;
+}
+.brand-text b { display: block; font-size: 0.95rem; font-weight: 800; letter-spacing: -0.02em; }
+.brand-text small { display: block; font-size: 0.7rem; color: #77827b; }
+nav a {
+  color: #4a5651;
+  text-decoration: none;
+  margin-left: 24px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+nav a:hover { color: #2c5a47; }
+
+/* HERO */
+.hero { padding: 80px 0 60px; }
+.hero .eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+  color: #6d9a81;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  margin-bottom: 24px;
+  max-width: 800px;
+}
+.hero h1 em { font-family: Georgia, serif; color: #2c5a47; font-weight: 400; }
+.hero p {
+  max-width: 620px;
+  color: #68736e;
+  font-size: 1.05rem;
+  margin-bottom: 32px;
+}
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 99px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+.btn-primary { background: #2c5a47; color: white; }
+.btn-primary:hover { background: #245d46; }
+.btn-secondary { background: white; color: #1c2624; border: 1px solid #dce3dc; }
+.btn-secondary:hover { border-color: #2c5a47; }
+
+/* SECTION */
+section { padding: 60px 0; }
+.section-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+  color: #6d9a81;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.section-heading {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: -0.03em;
+  margin-bottom: 40px;
+  max-width: 700px;
+}
+
+/* PROJECTS GRID */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: white;
+  border: 1px solid #e2e7e1;
+  border-radius: 20px;
+  padding: 28px;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.card:hover { border-color: #6d9a81; transform: translateY(-2px); }
+.card-icon {
+  width: 44px; height: 44px;
+  background: #e6f4ea;
+  border-radius: 12px;
+  display: grid; place-items: center;
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+}
+.card-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #6d9a81;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.card p { color: #68736e; font-size: 0.85rem; margin-bottom: 16px; }
+.card-link { font-size: 0.8rem; font-weight: 700; color: #2c5a47; }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px; top: 8px; bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, #6d9a81, #dce3dc);
+}
+.timeline-item { position: relative; padding-bottom: 32px; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -32px; top: 6px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #6d9a81;
+}
+.timeline-date {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #6d9a81;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.timeline-item h4 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.timeline-item p { color: #68736e; font-size: 0.85rem; }
+
+/* STORYBOOK */
+.storybook-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.storybook-item {
+  background: white;
+  border: 1px solid #e2e7e1;
+  border-radius: 14px;
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+}
+.storybook-item:hover { border-color: #6d9a81; }
+.storybook-item h4 {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.storybook-item p { font-size: 0.78rem; color: #68736e; }
+
+/* FOOTER */
+footer {
+  background: #121413;
+  color: #a0a8a3;
+  padding: 48px 0 32px;
+  margin-top: 60px;
+}
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+footer strong { color: white; }
+footer small { font-size: 0.75rem; }
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  header { flex-direction: column; gap: 20px; align-items: flex-start; }
+  nav a { margin: 0 16px 0 0; }
+  .hero { padding: 48px 0 32px; }
+  section { padding: 40px 0; }
+  footer .container { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+    <div class="brand">
+      <div class="brand-mark">H</div>
+      <div class="brand-text">
+        <b>HakemProject</b>
+        <small>Digital Holding Ecosystem</small>
+      </div>
+    </div>
+    <nav>
+      <a href="#proyek">Proyek</a>
+      <a href="#timeline">Perjalanan</a>
+      <a href="#storybook">Storybook</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="eyebrow">INDEPENDENT DIGITAL ARCHITECT — INDONESIA</p>
+    <h1>Membangun <em>ekosistem digital</em> untuk jutaan UMKM Indonesia.</h1>
+    <p>
+      HakemProject adalah induk usaha kreatif dan teknologi oleh Lukmanul Hakim.
+      Kami membangun NADI — jaringan yang menghubungkan kebutuhan manusia dengan
+      manusia yang mampu memenuhinya, dengan AI sebagai perantara.
+    </p>
+    <div class="hero-cta">
+      <a href="https://mynadi.pages.dev" class="btn btn-primary">Jelajahi NADI →</a>
+      <a href="https://github.com/hakemproject" class="btn btn-secondary">Lihat di GitHub</a>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="proyek">
+    <p class="section-title">TIGA PILAR EKOSISTEM</p>
+    <h2 class="section-heading">Produk yang saling terhubung, dibangun dengan fondasi yang sama.</h2>
+    <div class="projects">
+      <a href="https://mynadi.pages.dev" class="card">
+        <div class="card-icon">🫀</div>
+        <div class="card-tag">Platform Utama</div>
+        <h3>NADI</h3>
+        <p>Live Intent Network hiperlokal. Menghubungkan kebutuhan manusia dengan manusia yang mampu memenuhinya.</p>
+        <span class="card-link">Buka Platform →</span>
+      </a>
+      <a href="https://mynadi.pages.dev/builder" class="card">
+        <div class="card-icon">⚡</div>
+        <div class="card-tag">Engine Produk</div>
+        <h3>Web Builder</h3>
+        <p>Mesin pembuat landing page UMKM. Isi data, lihat preview, publish dalam 1 menit. Ringan, gratis, mobile-first.</p>
+        <span class="card-link">Coba Builder →</span>
+      </a>
+      <a href="https://hakem-media.pages.dev" class="card">
+        <div class="card-icon">🎨</div>
+        <div class="card-tag">Studio Kreatif</div>
+        <h3>Hakem Media</h3>
+        <p>Portofolio premium dan layanan website custom untuk kreator, influencer, dan bisnis yang ingin tampil beda.</p>
+        <span class="card-link">Buka Studio →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <p class="section-title">PERJALANAN PROYEK</p>
+    <h2 class="section-heading">Dari ide menjadi ekosistem digital yang hidup.</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Oktober 2026 · Fase 0</div>
+        <h4>Lahirnya Visi NADI</h4>
+        <p>Ide NADI muncul dari pengalaman pribadi: mencari bantuan nyata saat mogok di jalan. Filosofi: "Kebutuhan manusia dipenuhi manusia."</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Oktober 2026 · Fase 1</div>
+        <h4>Konsolidasi & Audit</h4>
+        <p>Rombak total struktur folder. Monorepo tunggal dengan 3 produk: NADI, Web Builder, Hakem Media. Sistem dokumentasi anti-amnesia.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">14 Oktober 2026</div>
+        <h4>NADI Home Live</h4>
+        <p><code>mynadi.pages.dev</code> — gerbang utama ekosistem NADI resmi diluncurkan di Cloudflare Edge Network.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">14 Oktober 2026</div>
+        <h4>Web Builder & Hakem Media Live</h4>
+        <p><code>mynadi.pages.dev/builder</code> dan <code>hakem-media.pages.dev</code> — dua produk inti NADI resmi aktif.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Berikutnya · Fase 2</div>
+        <h4>Backend & 19 Juta NADI Node</h4>
+        <p>Cloudflare Workers + D1 + R2. Target: 19 juta NADI Node (website UMKM) dengan arsitektur multi-tenant.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORYBOOK -->
+  <section id="storybook">
+    <p class="section-title">STORYBOOK & DOKUMENTASI</p>
+    <h2 class="section-heading">Semua keputusan tercatat. Tidak ada yang hilang.</h2>
+    <div class="storybook-grid">
+      <a href="/docs/01_SHARED/PROJECT_PHILOSOPHY.md" class="storybook-item">
+        <h4>📖 Filosofi Proyek</h4>
+        <p>Visi, misi, dan prinsip-prinsip pembangunan NADI.</p>
+      </a>
+      <a href="/docs/seo/01-seo-master-plan.md" class="storybook-item">
+        <h4>🎯 SEO Master Plan</h4>
+        <p>Strategi SEO untuk seluruh ekosistem NADI.</p>
+      </a>
+      <a href="/docs/05_TECHNICAL/REFERENCE_ARCHITECTURE.md" class="storybook-item">
+        <h4>🏗️ Arsitektur Sistem</h4>
+        <p>Cloudflare, D1, R2, dan desain multi-tenant.</p>
+      </a>
+      <a href="/docs/06_AI_SYSTEM/ANTI_AMNESIA_SYSTEM.md" class="storybook-item">
+        <h4>🧠 Anti-Amnesia System</h4>
+        <p>Sistem dokumentasi lintas AI untuk kelangsungan proyek.</p>
+      </a>
+      <a href="/docs/01_SHARED/ROADMAP_SHARED.md" class="storybook-item">
+        <h4>🗺️ Roadmap</h4>
+        <p>Peta jalan dari Fase 0 hingga ekosistem global.</p>
+      </a>
+      <a href="/docs/01_SHARED/DECISION_LOG.md" class="storybook-item">
+        <h4>📋 Decision Log</h4>
+        <p>Semua keputusan penting beserta alasannya.</p>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div>
+      © 2026 <strong>Lukmanul Hakim</strong> · HakemProject
+    </div>
+    <small>HOSTED ON CLOUDFLARE EDGE NETWORK</small>
+  </div>
+</footer>
+
+</body>
+</html>
