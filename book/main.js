@@ -1,5 +1,5 @@
 // ==============================================
-// Storybook - Main JavaScript
+// Book - Main JavaScript
 // ==============================================
 
 // ===== SMOOTH SCROLL & ACTIVE TOC =====
@@ -118,4 +118,4 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ===== INIT =====
-console.log('Storybook v3.0 loaded');
+console.log('Book v3.0 loaded');
