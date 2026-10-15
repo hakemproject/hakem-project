@@ -1131,3 +1131,96 @@ h1 em, h2 em {
     transform: none;
   }
 }
+
+/* ============================================================
+   NADI LIGHT TRAVEL — Cahaya merambat kiri ke kanan
+   ============================================================ */
+
+/* Wave asli — selalu terlihat */
+.art .nadi-line {
+  opacity: 1;
+}
+
+/* Highlight — duplikat putih yang bergerak */
+.art .nadi-highlight {
+  fill: #ffffff;
+  opacity: 0;
+  animation: nadiLightTravel 5s cubic-bezier(.65, .05, .36, 1) infinite;
+  pointer-events: none;
+}
+
+/* Dot — muncul saat cahaya sampai */
+.art .nadi-dot {
+  opacity: 0;
+  animation: nadiDotFlash 5s cubic-bezier(.65, .05, .36, 1) infinite;
+  transform-origin: 1150px 173px;
+  will-change: opacity, filter;
+}
+
+@keyframes nadiLightTravel {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  5% {
+    opacity: 0.85;
+  }
+  10% {
+    opacity: 0.85;
+    clip-path: inset(0 90% 0 0);
+  }
+  60% {
+    opacity: 0.85;
+    clip-path: inset(0 0 0 0);
+  }
+  70% {
+    opacity: 0.6;
+  }
+  85% {
+    opacity: 0;
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    opacity: 0;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes nadiDotFlash {
+  0%, 55% {
+    opacity: 0;
+    filter: drop-shadow(0 0 0 rgba(8, 117, 245, 0));
+  }
+  62% {
+    opacity: 1;
+    filter: drop-shadow(0 0 25px rgba(8, 117, 245, 0.9));
+  }
+  72% {
+    opacity: 1;
+    filter: drop-shadow(0 0 15px rgba(8, 117, 245, 0.6));
+  }
+  82% {
+    opacity: 0.9;
+    filter: drop-shadow(0 0 30px rgba(8, 117, 245, 1));
+  }
+  95% {
+    opacity: 1;
+    filter: drop-shadow(0 0 12px rgba(8, 117, 245, 0.5));
+  }
+  100% {
+    opacity: 0;
+    filter: drop-shadow(0 0 0 rgba(8, 117, 245, 0));
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .art .nadi-highlight,
+  .art .nadi-dot {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+  .art .nadi-dot {
+    opacity: 1 !important;
+  }
+}
