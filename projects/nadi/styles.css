@@ -1089,7 +1089,7 @@ h1 em, h2 em {
 
 .nadi-dot {
   opacity: 0;
-  transform-origin: 1112px 173px;
+  transform-origin: 1150px 173px;
   animation: nadiDotReveal 5s ease-out infinite;
 }
 
