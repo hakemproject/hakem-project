@@ -88,9 +88,6 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
-@keyframes dashMove {
-  to { stroke-dashoffset: -200; }
-}
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -401,22 +398,6 @@ h1 em, h2 em {
   animation: floatY 6s ease-in-out infinite 1s;
 }
 .n3:hover { transform: translateX(-50%) translateY(-4px) scale(1.03); }
-
-.art svg {
-  position: absolute;
-  width: 88%;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 110px;
-  z-index: 1;
-}
-.art svg path {
-  stroke-dasharray: 400;
-  stroke-dashoffset: 0;
-  animation: dashMove 4s linear infinite;
-}
-.art svg path:first-child { animation-delay: 0s; }
-.art svg path:last-child { animation-delay: .6s; }
 
 .art > p {
   position: absolute;
@@ -1068,7 +1049,7 @@ h1 em, h2 em {
    Draw Line + Pulse + Glow
    ============================================================ */
 
-.nadi-pulse {
+.art .nadi-pulse {
   position: absolute;
   width: 70%;
   max-width: 380px;
@@ -1080,14 +1061,14 @@ h1 em, h2 em {
   filter: drop-shadow(0 8px 24px rgba(217, 87, 87, 0.12));
 }
 
-.nadi-line {
+.art .nadi-line {
   stroke-dasharray: 3000;
   stroke-dashoffset: 3000;
   animation: nadiDrawLine 5s cubic-bezier(.65, .05, .36, 1) infinite;
   transform-origin: center;
 }
 
-.nadi-dot {
+.art .nadi-dot {
   opacity: 0;
   transform-origin: 1150px 173px;
   animation: nadiDotReveal 5s ease-out infinite;
@@ -1141,7 +1122,7 @@ h1 em, h2 em {
 /* Reduced motion — matikan animasi */
 @media (prefers-reduced-motion: reduce) {
   .nadi-line,
-  .nadi-dot {
+  .art .nadi-dot {
     animation: none !important;
     stroke-dashoffset: 0 !important;
     opacity: 1 !important;
