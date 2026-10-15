@@ -1070,11 +1070,11 @@ h1 em, h2 em {
 
 .nadi-pulse {
   position: absolute;
-  width: 68%;
-  max-width: 420px;
+  width: 70%;
+  max-width: 380px;
   height: auto;
-  top: 52%;
-  left: 48%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
   filter: drop-shadow(0 8px 24px rgba(217, 87, 87, 0.12));
