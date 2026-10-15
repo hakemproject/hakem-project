@@ -1,6 +1,6 @@
 ﻿/* ============================================================
-   NADI — Main JS v2.0
-   Sticky header · Smooth anchor · Ticker pause · Reveal on scroll
+   NADI — Main JS v2.1
+   Sticky header · Smooth anchor · Ticker pause · Reveal · FAQ
    Ringan, tanpa library
    ============================================================ */
 
@@ -103,6 +103,41 @@
     targets.forEach(el => observer.observe(el));
   }
 
+  // ---------- 6. FAQ Accordion ----------
+  function initFaq() {
+    const items = document.querySelectorAll('.faq-item');
+    if (!items.length) return;
+
+    items.forEach(item => {
+      const btn = item.querySelector('.faq-q');
+      if (!btn) return;
+
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        // Tutup semua dulu (one-open-at-a-time)
+        items.forEach(other => {
+          other.classList.remove('open');
+          const otherBtn = other.querySelector('.faq-q');
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+        });
+
+        // Buka yang diklik (kalau sebelumnya tertutup)
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Buka item pertama secara default
+    if (items[0]) {
+      items[0].classList.add('open');
+      const firstBtn = items[0].querySelector('.faq-q');
+      if (firstBtn) firstBtn.setAttribute('aria-expanded', 'true');
+    }
+  }
+
   // ---------- Init semua ----------
   function init() {
     setYear();
@@ -110,6 +145,7 @@
     initSmoothAnchor();
     initTickerPause();
     initReveal();
+    initFaq();
   }
 
   if (document.readyState === 'loading') {
