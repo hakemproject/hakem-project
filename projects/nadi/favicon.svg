@@ -1,5 +1,13 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <circle cx="50" cy="50" r="48" fill="#F7F7F2" stroke="#E2E8E0" stroke-width="2"/>
-  <path d="M15 52H32L38 34L44 68L50 42L55 52H85" stroke="#D95757" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M15 58H36L42 46L48 64L54 50L58 58H85" stroke="#568BBD" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>NADI</title>
+  <defs>
+    <linearGradient id="favGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff514c"/>
+      <stop offset="50%" stop-color="#e51a83"/>
+      <stop offset="100%" stop-color="#0875f5"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#fbf8f1"/>
+  <path d="M 8 36 L 11 36 L 13 33 L 15 28 L 17 34 L 19 38 L 21 32 L 24 20 L 27 28 L 30 22 L 33 32 L 36 24 L 39 30 L 42 28 L 45 32 L 48 30 L 51 32 L 54 30" 
+        fill="none" stroke="url(#favGrad)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
