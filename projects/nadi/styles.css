@@ -8,14 +8,14 @@
   /* Merah — manusia, denyut, kebutuhan */
   --red-50:  #fef2f2;
   --red-100: #fee2e2;
-  --red-500: #d95757;
+  --red-500: var(--nadi-red-500, #ef6461);
   --red-600: #c44a4a;
   --red-700: #a83a3a;
 
   /* Biru — teknologi, AI, kepercayaan */
   --blue-50:  #eff6ff;
   --blue-100: #dbeafe;
-  --blue-500: #568bbd;
+  --blue-500: var(--nadi-blue-500, #568bbd);
   --blue-600: #4678a8;
   --blue-700: #3a6389;
 
@@ -28,7 +28,7 @@
   --line:   #e4e8e1;
 
   /* Gradient nadi */
-  --grad-nadi: linear-gradient(135deg, #d95757 0%, #568bbd 100%);
+  --grad-nadi: linear-gradient(135deg, var(--nadi-red-500, #ef6461) 0%, var(--nadi-blue-500, #568bbd) 100%);
   --grad-soft: linear-gradient(135deg, rgba(217,87,87,.08), rgba(86,139,189,.08));
 
   /* Shadow */
@@ -1406,7 +1406,7 @@ section {
   --nadi-red-100:  #ffe0dd;
   --nadi-red-400:  #f58881;
   --nadi-red-500:  #ef6461;
-  --nadi-red-600:  #d95757;
+  --nadi-red-600:  var(--nadi-red-500, #ef6461);
   --nadi-red-700:  #a83a3a;
 
   /* Pink — Transisi */
@@ -1421,7 +1421,7 @@ section {
   --nadi-blue-50:  #eff6ff;
   --nadi-blue-100: #dbeafe;
   --nadi-blue-400: #7ab0ee;
-  --nadi-blue-500: #568bbd;
+  --nadi-blue-500: var(--nadi-blue-500, #568bbd);
   --nadi-blue-600: #4678a8;
   --nadi-blue-700: #3a6389;
 
@@ -1443,8 +1443,8 @@ section {
   --nadi-cream-400: #d9d3c4;
 
   /* Gradient NADI soft */
-  --grad-nadi: linear-gradient(135deg, #ef6461 0%, #568bbd 100%);
-  --grad-nadi-full: linear-gradient(135deg, #ef6461 0%, #e85a9c 35%, #9d6bdd 48%, #568bbd 61%, #4fbdd4 100%);
+  --grad-nadi: linear-gradient(135deg, #ef6461 0%, var(--nadi-blue-500, #568bbd) 100%);
+  --grad-nadi-full: linear-gradient(135deg, #ef6461 0%, #e85a9c 35%, #9d6bdd 48%, var(--nadi-blue-500, #568bbd) 61%, #4fbdd4 100%);
 
   /* Semantic Tokens */
   --bg-page: var(--nadi-cream-100);
