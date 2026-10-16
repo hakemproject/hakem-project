@@ -1556,3 +1556,37 @@ section {
     animation: none !important;
   }
 }
+
+/* ============================================================
+   HEADER TAGLINE — Teks di tengah header
+   ============================================================ */
+
+.header-new {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.header-tagline {
+  font-size: 0.88rem;
+  font-weight: 500;
+  font-style: italic;
+  color: #4a5a6e;
+  letter-spacing: -0.01em;
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .header-tagline {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-new {
+    gap: 12px;
+  }
+}
