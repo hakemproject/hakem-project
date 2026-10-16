@@ -1424,3 +1424,65 @@ section {
     filter: none !important;
   }
 }
+
+/* ============================================================
+   NADI PALET — 11 Warna Inti (Soft Pastel untuk Web)
+   ============================================================ */
+
+:root {
+  /* Merah — Manusia */
+  --nadi-red-50:   #fff1f0;
+  --nadi-red-100:  #ffe0dd;
+  --nadi-red-400:  #f58881;
+  --nadi-red-500:  #ef6461;
+  --nadi-red-600:  #d95757;
+  --nadi-red-700:  #a83a3a;
+
+  /* Pink — Transisi */
+  --nadi-pink-50:  #fdf2f8;
+  --nadi-pink-500: #e85a9c;
+
+  /* Ungu — Jembatan */
+  --nadi-purple-50:  #f5f0fb;
+  --nadi-purple-500: #9d6bdd;
+
+  /* Biru — Teknologi */
+  --nadi-blue-50:  #eff6ff;
+  --nadi-blue-100: #dbeafe;
+  --nadi-blue-400: #7ab0ee;
+  --nadi-blue-500: #568bbd;
+  --nadi-blue-600: #4678a8;
+  --nadi-blue-700: #3a6389;
+
+  /* Cyan — AI */
+  --nadi-cyan-50:  #effcfd;
+  --nadi-cyan-300: #7dd8e8;
+  --nadi-cyan-500: #4fbdd4;
+
+  /* Navy — Text */
+  --nadi-navy-500: #4a5a6e;
+  --nadi-navy-700: #2a3a4f;
+  --nadi-navy-900: #17283a;
+
+  /* Cream — Background */
+  --nadi-cream-50:  #fffdf9;
+  --nadi-cream-100: #fbf8f1;
+  --nadi-cream-200: #f7f4ec;
+  --nadi-cream-300: #eae6dc;
+  --nadi-cream-400: #d9d3c4;
+
+  /* Gradient NADI soft */
+  --grad-nadi: linear-gradient(135deg, #ef6461 0%, #568bbd 100%);
+  --grad-nadi-full: linear-gradient(135deg, #ef6461 0%, #e85a9c 35%, #9d6bdd 48%, #568bbd 61%, #4fbdd4 100%);
+
+  /* Semantic Tokens */
+  --bg-page: var(--nadi-cream-100);
+  --bg-card: var(--nadi-cream-50);
+  --bg-section: var(--nadi-cream-200);
+  --text-primary: var(--nadi-navy-900);
+  --text-secondary: var(--nadi-navy-700);
+  --text-muted: var(--nadi-navy-500);
+  --accent: var(--nadi-red-500);
+  --accent-2: var(--nadi-blue-500);
+  --border: var(--nadi-cream-300);
+}
