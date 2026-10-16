@@ -646,37 +646,8 @@ h1 em, h2 em {
 }
 
 /* ---------- FLOATING WA ---------- */
-.wa-float {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  z-index: 100;
-  background: #22c55e;
-  color: #fff;
-  border-radius: var(--r-pill);
-  padding: 14px 20px;
-  font-weight: 700;
-  font-size: .85rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  box-shadow: 0 12px 32px rgba(34,197,94,.35), 0 0 0 0 rgba(34,197,94,.5);
-  animation: pulseWa 2.4s ease-out infinite;
-  transition: transform var(--t-fast);
-}
+
 .wa-float:hover { transform: translateY(-3px) scale(1.03); }
-.wa-float::before {
-  content: '';
-  width: 8px; height: 8px;
-  background: #fff;
-  border-radius: 50%;
-  animation: pulseDot 1.6s infinite;
-}
-@keyframes pulseWa {
-  0% { box-shadow: 0 12px 32px rgba(34,197,94,.35), 0 0 0 0 rgba(34,197,94,.45); }
-  70% { box-shadow: 0 12px 32px rgba(34,197,94,.35), 0 0 0 18px rgba(34,197,94,0); }
-  100% { box-shadow: 0 12px 32px rgba(34,197,94,.35), 0 0 0 0 rgba(34,197,94,0); }
-}
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 900px) {
@@ -701,7 +672,7 @@ h1 em, h2 em {
   .section { padding: 64px 0; }
   .footer { grid-template-columns: 1fr; }
   .footer small { grid-column: auto; }
-  .wa-float { right: 14px; bottom: 14px; padding: 12px 16px; font-size: .78rem; }
+  
 }
 
 /* ---------- MOTION ---------- */
@@ -1518,5 +1489,70 @@ section {
 @media (max-width: 640px) {
   .header-new {
     gap: 12px;
+  }
+}
+
+/* ============================================================
+   WA FLOAT — Bulat, hijau WA asli, hover stroke
+   ============================================================ */
+
+.wa-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 100;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  transition: transform .3s, box-shadow .3s;
+  animation: waPulse 2.4s ease-out infinite;
+}
+
+.wa-float:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 
+    0 12px 32px rgba(37, 211, 102, 0.45),
+    0 0 0 4px rgba(255, 255, 255, 0.9),
+    0 0 0 8px rgba(37, 211, 102, 0.3);
+}
+
+.wa-float svg {
+  width: 28px;
+  height: 28px;
+  fill: #ffffff;
+}
+
+@keyframes waPulse {
+  0% {
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35), 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35), 0 0 0 16px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35), 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+@media (max-width: 640px) {
+  .wa-float {
+    right: 16px;
+    bottom: 16px;
+    width: 56px;
+    height: 56px;
+  }
+  .wa-float svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-float {
+    animation: none !important;
   }
 }
