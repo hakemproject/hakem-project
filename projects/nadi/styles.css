@@ -1061,21 +1061,9 @@ h1 em, h2 em {
   filter: drop-shadow(0 8px 24px rgba(217, 87, 87, 0.12));
 }
 
-.art .nadi-line {
-  stroke-dasharray: 3000;
-  stroke-dashoffset: 3000;
-  animation: nadiDrawLine 5s cubic-bezier(.65, .05, .36, 1) infinite;
-  transform-origin: center;
-}
 
 
 
-@keyframes nadiDrawLine {
-  0%   { stroke-dashoffset: 3000; opacity: 1; }
-  60%  { stroke-dashoffset: 0;    opacity: 1; }
-  85%  { stroke-dashoffset: 0;    opacity: 1; }
-  100% { stroke-dashoffset: 0;    opacity: 0; }
-}
 
 /* Reduced motion — matikan animasi */
 @media (prefers-reduced-motion: reduce) {
@@ -1091,9 +1079,7 @@ h1 em, h2 em {
    ============================================================ */
 
 /* Wave asli — selalu terlihat */
-.art .nadi-line {
-  opacity: 1;
-}
+
 
 /* Highlight — duplikat putih yang bergerak */
 .art .nadi-highlight {
@@ -1345,9 +1331,7 @@ section {
    ============================================================ */
 
 /* Wave selalu terlihat */
-.art .nadi-line {
-  opacity: 1;
-}
+
 
 /* Dot nyala terus dengan pulse halus */
 .art .nadi-dot {
@@ -1372,5 +1356,42 @@ section {
 @media (prefers-reduced-motion: reduce) {
   .art .nadi-dot {
     animation: none !important;
+  }
+}
+
+/* ============================================================
+   NADI WAVE — Cahaya merambat kiri ke kanan
+   ============================================================ */
+
+.art .nadi-line {
+  opacity: 1;
+  animation: nadiWaveFlow 5s ease-in-out infinite;
+  transform-origin: center;
+  will-change: filter;
+}
+
+@keyframes nadiWaveFlow {
+  0% {
+    filter: 
+      drop-shadow(-400px 0 0 rgba(255, 81, 76, 0))
+      brightness(1);
+  }
+  50% {
+    filter: 
+      drop-shadow(0 0 25px rgba(239, 100, 97, 0.8))
+      drop-shadow(0 0 45px rgba(86, 139, 189, 0.5))
+      brightness(1.15);
+  }
+  100% {
+    filter: 
+      drop-shadow(400px 0 0 rgba(8, 117, 245, 0))
+      brightness(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .art .nadi-line {
+    animation: none !important;
+    filter: none !important;
   }
 }
