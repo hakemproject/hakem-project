@@ -1598,3 +1598,11 @@ section {
 @media (max-width: 640px) {
   
 }
+
+/* Force logo header tampil besar */
+.brand img {
+  height: 64px !important;
+  width: auto !important;
+  max-height: 64px !important;
+  display: block;
+}
