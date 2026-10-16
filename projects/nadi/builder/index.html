@@ -2,161 +2,149 @@
 <html lang="id">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="theme-color" content="#fbf8f1">
-<meta name="description" content="NADI Builder — Buat website UMKM gratis dengan AI.">
-<title>NADI Builder — Segera Hadir</title>
+<meta name="description" content="NADI Builder — Buat website UMKM gratis dalam hitungan menit.">
+<title>NADI Builder — Buat Website UMKM</title>
 <link rel="icon" href="../favicon.svg">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  background: #fbf8f1;
-  color: #17283a;
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  line-height: 1.6;
-}
-.card {
-  background: #fffdf9;
-  border: 1px solid #eae6dc;
-  border-radius: 28px;
-  padding: 48px 40px;
-  max-width: 560px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 20px 55px rgba(23, 40, 58, 0.08);
-}
-.logo {
-  height: 56px;
-  margin-bottom: 24px;
-  display: inline-block;
-}
-h1 {
-  font-size: 1.8rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  margin-bottom: 12px;
-  background: linear-gradient(135deg, #ef6461 0%, #568bbd 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #fff1f0;
-  color: #d95757;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 8px 16px;
-  border-radius: 999px;
-  margin-bottom: 20px;
-}
-.status::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  background: #ef6461;
-  border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-  box-shadow: 0 0 12px #ef6461;
-}
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.35); opacity: 0.5; }
-}
-p {
-  color: #4a5a6e;
-  font-size: 1rem;
-  margin-bottom: 32px;
-  max-width: 420px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.actions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 24px;
-  border-radius: 999px;
-  font-size: 0.88rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-.btn.primary {
-  background: #17283a;
-  color: #fff;
-}
-.btn.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(23, 40, 58, 0.15);
-}
-.btn.secondary {
-  background: #fff;
-  color: #17283a;
-  border: 1px solid #eae6dc;
-}
-.btn.secondary:hover {
-  border-color: #ef6461;
-  color: #ef6461;
-  transform: translateY(-2px);
-}
-.note {
-  font-size: 0.78rem;
-  color: #87928b;
-  margin-top: 28px;
-  padding-top: 24px;
-  border-top: 1px solid #eae6dc;
-}
-@media (max-width: 480px) {
-  .card { padding: 36px 24px; }
-  h1 { font-size: 1.5rem; }
-  .actions { flex-direction: column; }
-  .btn { justify-content: center; }
-}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="card">
-  <img src="../logo.svg" alt="NADI" class="logo">
-  
-  <div class="status">Segera Hadir</div>
-  
-  <h1>NADI Builder</h1>
-  
-  <p>
-    Mesin bikin website UMKM gratis sedang kami siapkan. 
-    Isi data usaha Anda, lihat preview, dan publish dalam hitungan menit.
-  </p>
-
-  <div class="actions">
-    <a class="btn primary" href="../#harga">
-      <span>Lihat Paket</span>
-      <span>↗</span>
-    </a>
-    <a class="btn secondary" href="../">
-      ← Kembali ke Beranda
-    </a>
-  </div>
-
-  <p class="note">
-    Sementara ini, hubungi kami langsung via WhatsApp untuk pembuatan website custom.
-  </p>
+<div class="top">
+  <a class="brand" href="../">
+    <span class="mark">N</span>
+    <span>
+      NADI Builder
+      <small>Buat website UMKM gratis</small>
+    </span>
+  </a>
+  <a class="back" href="../">← Beranda</a>
 </div>
 
+<main class="shell">
+  <section class="intro">
+    <div>
+      <p class="eyebrow">NADI BUILDER · GRATIS</p>
+      <h1>Bikin website usahamu<br><em>dalam hitungan menit.</em></h1>
+      <p>Isi data usaha, lihat preview langsung, lalu simpan draft. Publishing online segera hadir.</p>
+    </div>
+    <div class="steps">
+      <span class="active">1. Isi data</span>
+      <span>2. Preview</span>
+      <span>3. Publish</span>
+    </div>
+  </section>
+
+  <section class="workspace">
+    <div class="panel">
+      <div class="panelhead">
+        <h2>Data Usaha</h2>
+        <button id="reset" type="button">Reset</button>
+      </div>
+      <form id="form">
+        <label>
+          Nama Usaha
+          <input id="name" type="text" placeholder="Contoh: Bakso Pak Joko" required>
+        </label>
+
+        <label>
+          Kategori
+          <select id="category" required>
+            <option value="">Pilih kategori</option>
+            <option value="Kuliner">Kuliner</option>
+            <option value="Jasa">Jasa</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Kreatif">Kreatif</option>
+            <option value="Kesehatan">Kesehatan</option>
+            <option value="Pendidikan">Pendidikan</option>
+            <option value="Properti">Properti</option>
+            <option value="Otomotif">Otomotif</option>
+            <option value="Lainnya">Lainnya</option>
+          </select>
+        </label>
+
+        <label>
+          Nomor WhatsApp
+          <input id="wa" type="tel" placeholder="08123456789" required>
+        </label>
+
+        <label>
+          Deskripsi Usaha
+          <textarea id="description" rows="3" maxlength="200" placeholder="Ceritakan usaha Anda dalam 1-2 kalimat..."></textarea>
+          <small><span id="count">0</span> / 200 karakter</small>
+        </label>
+
+        <label>
+          Promo (opsional)
+          <input id="promo" type="text" placeholder="Contoh: Beli 2 Gratis 1">
+        </label>
+
+        <label>
+          Alamat Usaha
+          <input id="address" type="text" placeholder="Jl. Contoh No. 123, Kota" required>
+        </label>
+
+        <label>
+          Foto Usaha (opsional)
+          <input id="photo" type="file" accept="image/*">
+          <small>Maksimal 5 MB. JPG, PNG, atau WEBP.</small>
+        </label>
+
+        <div class="actions">
+          <button type="submit" class="primary">Simpan Draft</button>
+          <button type="button" class="secondary" id="previewBtn">Perbarui Preview</button>
+        </div>
+
+        <p id="message"></p>
+      </form>
+    </div>
+
+    <div class="preview">
+      <div class="previewhead">
+        <span><i></i>Preview Langsung</span>
+        <small>Mode HP</small>
+      </div>
+
+      <div class="phone">
+        <div class="sitehead">
+          <b id="initial">U</b>
+          <strong id="pnameNav">Nama Usaha</strong>
+          <span>⋮</span>
+        </div>
+
+        <div class="photoarea" id="photoarea">
+          <span>Foto Usaha</span>
+        </div>
+
+        <div class="sitebody">
+          <span class="category" id="pcategory">Kategori bisnis</span>
+          <p class="promo" id="ppromo" hidden>Promo</p>
+          <h2 id="pname">Nama Usaha</h2>
+          <p id="pdescription">Deskripsi singkat produk atau layananmu akan tampil di sini.</p>
+          <a id="pwa" href="#" target="_blank" rel="noopener">Chat WhatsApp ↗</a>
+        </div>
+
+        <div class="address">
+          <strong>Lokasi</strong>
+          <p id="paddress">Alamat akan ditampilkan di sini.</p>
+        </div>
+
+        <footer>
+          Dibuat dengan NADI Builder
+        </footer>
+      </div>
+
+      <p class="caption">Preview realtime — data belum tersimpan ke server.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>© <span data-year></span> HakemProject · NADI Builder</span>
+  <span>Draft tersimpan di browser Anda</span>
+</footer>
+
+<script src="main.js"></script>
 </body>
 </html>
