@@ -1336,25 +1336,6 @@ section {
 
 
 
-@keyframes nadiWaveFlow {
-  0% {
-    filter: 
-      drop-shadow(-400px 0 0 rgba(255, 81, 76, 0))
-      brightness(1);
-  }
-  50% {
-    filter: 
-      drop-shadow(0 0 25px rgba(239, 100, 97, 0.8))
-      drop-shadow(0 0 45px rgba(86, 139, 189, 0.5))
-      brightness(1.15);
-  }
-  100% {
-    filter: 
-      drop-shadow(400px 0 0 rgba(8, 117, 245, 0))
-      brightness(1);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   
 }
@@ -1365,28 +1346,8 @@ section {
 
 .art .nadi-line {
   opacity: 1;
-  animation: nadiWaveFlow 5s ease-in-out infinite;
   transform-origin: center;
   will-change: filter;
-}
-
-@keyframes nadiWaveFlow {
-  0% {
-    filter: 
-      drop-shadow(-400px 0 0 rgba(255, 81, 76, 0))
-      brightness(1);
-  }
-  50% {
-    filter: 
-      drop-shadow(0 0 25px rgba(239, 100, 97, 0.8))
-      drop-shadow(0 0 45px rgba(86, 139, 189, 0.5))
-      brightness(1.15);
-  }
-  100% {
-    filter: 
-      drop-shadow(400px 0 0 rgba(8, 117, 245, 0))
-      brightness(1);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
