@@ -1224,3 +1224,57 @@ h1 em, h2 em {
     opacity: 1 !important;
   }
 }
+
+/* ============================================================
+   MOBILE FIX — Cegah zoom + horizontal scroll
+   ============================================================ */
+
+/* Cegah horizontal scroll global */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+
+/* Semua elemen tidak boleh lebih lebar dari layar */
+*, *::before, *::after {
+  max-width: 100%;
+}
+
+/* Cegah gambar/SVG overflow */
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ticker: batasi lebar + hidden overflow */
+.ticker {
+  overflow: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.ticker-track {
+  max-width: none;
+}
+
+/* Hero visual: cegah overflow */
+.art {
+  overflow: hidden;
+  max-width: 100%;
+}
+
+/* Section: pastikan tidak overflow */
+section {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Touch-action untuk mobile */
+@media (max-width: 900px) {
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    touch-action: pan-y;
+  }
+}

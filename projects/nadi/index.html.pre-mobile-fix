@@ -1,0 +1,312 @@
+﻿<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f7f2">
+<meta name="description" content="NADI menghubungkan kebutuhan manusia dengan manusia yang mampu membantu.">
+<title>NADI — Kebutuhan manusia, dipenuhi manusia</title>
+<link rel="icon" href="favicon.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="topbar wrap">
+  <b>NADI</b> · Jaringan Manusia Indonesia · Sejak 2026
+</div>
+
+<header class="nav wrap">
+  <a class="brand" href="#"><img src="logo.svg" alt="NADI" height="52"></a>
+  <nav>
+    <a href="#cara">Cara kerja</a>
+    <a href="#umkm">Untuk UMKM</a>
+    <a href="#testimoni">Testimoni</a>
+    <a href="#faq">FAQ</a>
+    <a class="pill" href="../web-builder/index.html">Buat website</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero wrap">
+  <div>
+    <p class="eyebrow"><i></i> Jaringan manusia yang saling terhubung</p>
+    <h1>Kebutuhan manusia,<br><em>dipenuhi manusia.</em></h1>
+    <p class="lead">NADI membantu kebutuhan menemukan orang, usaha, dan kemampuan yang tepat. Teknologi membantu mendekatkan; manusialah yang menghadirkan solusi nyata.</p>
+    <div class="actions">
+      <a class="btn dark" href="../web-builder/index.html"><span>Buat website gratis ↗</span></a>
+      <a class="btn light" href="#cara">Kenali NADI</a>
+    </div>
+    <small class="note">Mulai dari UMKM. Dibangun untuk koneksi yang lebih luas.</small>
+  </div>
+  <div class="art">
+    <div class="orbit"></div>
+    <div class="node n1">
+      <b>♡ Manusia</b>
+      <small>Kebutuhan &amp; kemampuan</small>
+    </div>
+    <div class="node n2">
+      <b>✳ AI sebagai perantara</b>
+      <small>Membantu menemukan</small>
+    </div>
+    <div class="node n3">
+      <b>↗ Solusi nyata</b>
+      <small>Terhubung langsung</small>
+    </div>
+    <svg class="nadi-pulse" viewBox="20 10 1240 310" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="nadiGradHero" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#ff514c"/>
+          <stop offset="17%" stop-color="#ff1737"/>
+          <stop offset="35%" stop-color="#e51a83"/>
+          <stop offset="48%" stop-color="#8d39d9"/>
+          <stop offset="61%" stop-color="#078bff"/>
+          <stop offset="76%" stop-color="#00c7e9"/>
+          <stop offset="100%" stop-color="#0875f5"/>
+        </linearGradient>
+        <linearGradient id="dotGradHero" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#00d4e7"/>
+          <stop offset="100%" stop-color="#0875f5"/>
+        </linearGradient>
+      </defs>
+      <path class="nadi-line" d="M 38 218 L 40 223 L 46 229 L 54 232 L 119 232 L 120 231 L 128 231 L 129 230 L 132 230 L 144 225 L 151 220 L 159 212 L 166 200 L 182 179 L 186 189 L 186 192 L 190 203 L 191 210 L 194 217 L 195 224 L 197 228 L 200 242 L 204 252 L 204 255 L 207 264 L 214 272 L 226 278 L 237 278 L 238 277 L 241 277 L 249 273 L 255 267 L 260 258 L 260 255 L 262 252 L 265 241 L 267 238 L 269 230 L 274 219 L 278 205 L 280 202 L 283 191 L 285 188 L 290 172 L 295 161 L 305 131 L 309 123 L 311 115 L 314 110 L 315 105 L 318 99 L 321 96 L 325 97 L 329 104 L 329 106 L 332 111 L 335 120 L 340 129 L 340 131 L 344 138 L 344 140 L 360 174 L 362 181 L 367 190 L 367 192 L 371 199 L 371 201 L 375 208 L 375 210 L 385 231 L 392 241 L 404 253 L 418 261 L 420 261 L 426 264 L 430 264 L 431 265 L 448 266 L 449 265 L 454 265 L 455 264 L 462 263 L 471 259 L 482 252 L 495 239 L 510 219 L 514 212 L 522 202 L 526 195 L 529 192 L 561 146 L 570 137 L 577 134 L 583 134 L 590 137 L 601 149 L 605 157 L 619 178 L 620 181 L 643 218 L 645 223 L 652 233 L 654 238 L 669 260 L 680 270 L 688 275 L 706 281 L 723 281 L 724 280 L 734 278 L 747 271 L 762 257 L 771 242 L 776 227 L 779 222 L 783 210 L 786 205 L 786 203 L 791 193 L 793 186 L 796 181 L 800 169 L 808 152 L 812 140 L 815 135 L 816 130 L 819 124 L 828 116 L 837 116 L 846 120 L 848 120 L 853 123 L 855 123 L 868 130 L 870 130 L 916 153 L 918 155 L 957 175 L 959 177 L 975 186 L 978 190 L 977 193 L 971 197 L 950 204 L 947 204 L 937 208 L 934 208 L 923 212 L 916 213 L 905 217 L 902 217 L 901 218 L 898 218 L 897 219 L 894 219 L 893 220 L 890 220 L 889 221 L 886 221 L 877 224 L 873 224 L 868 226 L 864 226 L 863 227 L 859 227 L 858 228 L 854 228 L 849 230 L 844 230 L 843 231 L 839 231 L 833 233 L 828 233 L 821 236 L 813 243 L 808 252 L 808 255 L 807 256 L 807 265 L 808 266 L 809 272 L 812 277 L 821 285 L 829 288 L 836 288 L 837 287 L 843 287 L 844 286 L 849 286 L 850 285 L 855 285 L 856 284 L 862 284 L 863 283 L 868 283 L 869 282 L 873 282 L 874 281 L 884 280 L 885 279 L 894 278 L 899 276 L 903 276 L 904 275 L 907 275 L 908 274 L 911 274 L 912 273 L 935 268 L 946 264 L 953 263 L 966 258 L 972 257 L 975 255 L 983 253 L 986 251 L 988 251 L 991 249 L 1003 245 L 1020 236 L 1031 228 L 1036 223 L 1041 216 L 1046 206 L 1046 203 L 1048 198 L 1048 185 L 1047 184 L 1047 180 L 1045 174 L 1041 166 L 1036 159 L 1025 148 L 1005 133 L 1002 132 L 994 126 L 991 125 L 986 121 L 983 120 L 971 112 L 966 110 L 959 105 L 912 80 L 910 80 L 903 76 L 901 76 L 886 69 L 868 63 L 865 63 L 864 62 L 861 62 L 852 59 L 838 58 L 837 57 L 824 57 L 823 58 L 817 58 L 816 59 L 812 59 L 808 61 L 805 61 L 792 67 L 781 75 L 773 84 L 761 105 L 761 107 L 757 114 L 757 116 L 752 125 L 752 127 L 747 136 L 747 138 L 736 161 L 733 170 L 729 177 L 729 179 L 724 189 L 722 196 L 720 200 L 716 203 L 712 203 L 706 198 L 705 195 L 699 187 L 698 184 L 692 176 L 691 173 L 671 143 L 670 140 L 656 120 L 655 117 L 647 105 L 644 102 L 643 99 L 635 89 L 624 79 L 621 78 L 614 73 L 601 68 L 593 67 L 592 66 L 575 66 L 574 67 L 565 68 L 549 75 L 539 82 L 527 94 L 514 111 L 512 115 L 506 122 L 504 126 L 491 143 L 485 153 L 482 156 L 462 185 L 458 189 L 450 193 L 444 193 L 436 189 L 429 180 L 428 176 L 419 159 L 419 157 L 384 87 L 382 85 L 372 64 L 370 62 L 367 55 L 363 49 L 353 39 L 345 34 L 343 34 L 334 30 L 330 30 L 329 29 L 317 29 L 316 30 L 312 30 L 311 31 L 305 32 L 294 38 L 280 53 L 273 67 L 270 77 L 266 85 L 264 93 L 262 96 L 257 112 L 255 115 L 250 131 L 248 134 L 246 142 L 244 145 L 241 156 L 239 159 L 235 173 L 233 176 L 231 175 L 231 173 L 223 155 L 222 150 L 218 142 L 209 132 L 201 127 L 195 125 L 192 125 L 191 124 L 180 124 L 179 125 L 175 125 L 166 129 L 154 139 L 126 183 L 121 188 L 114 192 L 108 194 L 56 194 L 55 195 L 51 195 L 43 200 L 40 204 L 38 209 Z" fill="url(#nadiGradHero)"/>
+      <path class="nadi-highlight" d="M 38 218 L 40 223 L 46 229 L 54 232 L 119 232 L 120 231 L 128 231 L 129 230 L 132 230 L 144 225 L 151 220 L 159 212 L 166 200 L 182 179 L 186 189 L 186 192 L 190 203 L 191 210 L 194 217 L 195 224 L 197 228 L 200 242 L 204 252 L 204 255 L 207 264 L 214 272 L 226 278 L 237 278 L 238 277 L 241 277 L 249 273 L 255 267 L 260 258 L 260 255 L 262 252 L 265 241 L 267 238 L 269 230 L 274 219 L 278 205 L 280 202 L 283 191 L 285 188 L 290 172 L 295 161 L 305 131 L 309 123 L 311 115 L 314 110 L 315 105 L 318 99 L 321 96 L 325 97 L 329 104 L 329 106 L 332 111 L 335 120 L 340 129 L 340 131 L 344 138 L 344 140 L 360 174 L 362 181 L 367 190 L 367 192 L 371 199 L 371 201 L 375 208 L 375 210 L 385 231 L 392 241 L 404 253 L 418 261 L 420 261 L 426 264 L 430 264 L 431 265 L 448 266 L 449 265 L 454 265 L 455 264 L 462 263 L 471 259 L 482 252 L 495 239 L 510 219 L 514 212 L 522 202 L 526 195 L 529 192 L 561 146 L 570 137 L 577 134 L 583 134 L 590 137 L 601 149 L 605 157 L 619 178 L 620 181 L 643 218 L 645 223 L 652 233 L 654 238 L 669 260 L 680 270 L 688 275 L 706 281 L 723 281 L 724 280 L 734 278 L 747 271 L 762 257 L 771 242 L 776 227 L 779 222 L 783 210 L 786 205 L 786 203 L 791 193 L 793 186 L 796 181 L 800 169 L 808 152 L 812 140 L 815 135 L 816 130 L 819 124 L 828 116 L 837 116 L 846 120 L 848 120 L 853 123 L 855 123 L 868 130 L 870 130 L 916 153 L 918 155 L 957 175 L 959 177 L 975 186 L 978 190 L 977 193 L 971 197 L 950 204 L 947 204 L 937 208 L 934 208 L 923 212 L 916 213 L 905 217 L 902 217 L 901 218 L 898 218 L 897 219 L 894 219 L 893 220 L 890 220 L 889 221 L 886 221 L 877 224 L 873 224 L 868 226 L 864 226 L 863 227 L 859 227 L 858 228 L 854 228 L 849 230 L 844 230 L 843 231 L 839 231 L 833 233 L 828 233 L 821 236 L 813 243 L 808 252 L 808 255 L 807 256 L 807 265 L 808 266 L 809 272 L 812 277 L 821 285 L 829 288 L 836 288 L 837 287 L 843 287 L 844 286 L 849 286 L 850 285 L 855 285 L 856 284 L 862 284 L 863 283 L 868 283 L 869 282 L 873 282 L 874 281 L 884 280 L 885 279 L 894 278 L 899 276 L 903 276 L 904 275 L 907 275 L 908 274 L 911 274 L 912 273 L 935 268 L 946 264 L 953 263 L 966 258 L 972 257 L 975 255 L 983 253 L 986 251 L 988 251 L 991 249 L 1003 245 L 1020 236 L 1031 228 L 1036 223 L 1041 216 L 1046 206 L 1046 203 L 1048 198 L 1048 185 L 1047 184 L 1047 180 L 1045 174 L 1041 166 L 1036 159 L 1025 148 L 1005 133 L 1002 132 L 994 126 L 991 125 L 986 121 L 983 120 L 971 112 L 966 110 L 959 105 L 912 80 L 910 80 L 903 76 L 901 76 L 886 69 L 868 63 L 865 63 L 864 62 L 861 62 L 852 59 L 838 58 L 837 57 L 824 57 L 823 58 L 817 58 L 816 59 L 812 59 L 808 61 L 805 61 L 792 67 L 781 75 L 773 84 L 761 105 L 761 107 L 757 114 L 757 116 L 752 125 L 752 127 L 747 136 L 747 138 L 736 161 L 733 170 L 729 177 L 729 179 L 724 189 L 722 196 L 720 200 L 716 203 L 712 203 L 706 198 L 705 195 L 699 187 L 698 184 L 692 176 L 691 173 L 671 143 L 670 140 L 656 120 L 655 117 L 647 105 L 644 102 L 643 99 L 635 89 L 624 79 L 621 78 L 614 73 L 601 68 L 593 67 L 592 66 L 575 66 L 574 67 L 565 68 L 549 75 L 539 82 L 527 94 L 514 111 L 512 115 L 506 122 L 504 126 L 491 143 L 485 153 L 482 156 L 462 185 L 458 189 L 450 193 L 444 193 L 436 189 L 429 180 L 428 176 L 419 159 L 419 157 L 384 87 L 382 85 L 372 64 L 370 62 L 367 55 L 363 49 L 353 39 L 345 34 L 343 34 L 334 30 L 330 30 L 329 29 L 317 29 L 316 30 L 312 30 L 311 31 L 305 32 L 294 38 L 280 53 L 273 67 L 270 77 L 266 85 L 264 93 L 262 96 L 257 112 L 255 115 L 250 131 L 248 134 L 246 142 L 244 145 L 241 156 L 239 159 L 235 173 L 233 176 L 231 175 L 231 173 L 223 155 L 222 150 L 218 142 L 209 132 L 201 127 L 195 125 L 192 125 L 191 124 L 180 124 L 179 125 L 175 125 L 166 129 L 154 139 L 126 183 L 121 188 L 114 192 L 108 194 L 56 194 L 55 195 L 51 195 L 43 200 L 40 204 L 38 209 Z" fill="#ffffff"/>
+      <circle class="nadi-dot" cx="1150" cy="173" r="32" fill="url(#dotGradHero)"/>
+    </svg>
+    <p>Teknologi menghubungkan. Manusia menyelesaikan.</p>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Kebutuhan nyata</span>
+    <span>Teknologi sebagai jembatan</span>
+    <span>Solusi oleh manusia</span>
+    <span>UMKM</span>
+    <span>Kreator</span>
+    <span>Profesional</span>
+    <span>Jasa</span>
+    <span>Produk</span>
+    <span>Kebutuhan nyata</span>
+    <span>Teknologi sebagai jembatan</span>
+    <span>Solusi oleh manusia</span>
+    <span>UMKM</span>
+    <span>Kreator</span>
+    <span>Profesional</span>
+    <span>Jasa</span>
+    <span>Produk</span>
+  </div>
+</div>
+
+<section class="section wrap" id="cara">
+  <div class="center" data-reveal>
+    <p class="eyebrow">Cara pandang kami</p>
+    <h2>Bukan menggantikan manusia.<br><em>Mendekatkan manusia.</em></h2>
+  </div>
+  <div class="cards">
+    <article data-reveal="1">
+      <span class="symbol coral">♡</span>
+      <h3>Kebutuhan nyata</h3>
+      <p>Dari mencari jasa, pelanggan, rekan kerja, sampai bantuan di sekitar.</p>
+    </article>
+    <article data-reveal="2">
+      <span class="symbol blue">✳</span>
+      <h3>Teknologi sebagai jembatan</h3>
+      <p>AI membantu memahami kebutuhan dan menemukan pilihan yang relevan secara transparan.</p>
+    </article>
+    <article data-reveal="3">
+      <span class="symbol green">↗</span>
+      <h3>Solusi oleh manusia</h3>
+      <p>Kontak, kesepakatan, dan layanan nyata tetap melibatkan orang sungguhan.</p>
+    </article>
+  </div>
+</section>
+
+<section class="band" id="umkm">
+  <div class="wrap bandin">
+    <div data-reveal>
+      <p class="eyebrow">Langkah pertama NADI</p>
+      <h2>Setiap usaha layak<br>punya rumah digital.</h2>
+      <p>Landing page ringan, mudah dibagikan, dan langsung menghubungkan pelanggan ke WhatsApp atau Maps.</p>
+      <a class="btn dark" href="../web-builder/index.html"><span>Mulai dari sini ↗</span></a>
+    </div>
+    <div class="mock" data-reveal="2">
+      <div class="mockimg">Usaha lokal</div>
+      <b>Nama Usaha</b>
+      <p>Produk baik. Cerita nyata.</p>
+      <span>Chat WhatsApp ↗</span>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap" id="testimoni">
+  <div class="center" data-reveal>
+    <p class="eyebrow">Cerita dari lapangan</p>
+    <h2>Mereka sudah<br><em>punya rumah digital.</em></h2>
+  </div>
+  <div class="testi-grid">
+    <article class="testi-card" data-reveal="1">
+      <p class="testi-quote">Dulu cuma jualan di WA grup. Sekarang pelanggan baru tahu katalog saya dari website NADI. Penjualan naik 3x dalam 2 bulan.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">SR</div>
+        <div>
+          <p class="testi-name">Siti Rahma</p>
+          <p class="testi-role">Katering Rumahan · Sidoarjo</p>
+        </div>
+      </div>
+    </article>
+    <article class="testi-card" data-reveal="2">
+      <p class="testi-quote">Saya kira bikin website itu ribet dan mahal. Ternyata lewat NADI cukup 10 menit, langsung jadi. Klien baru sekarang bisa lihat portofolio saya.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">BW</div>
+        <div>
+          <p class="testi-name">Budi Wijaya</p>
+          <p class="testi-role">Fotografer Lepas · Surabaya</p>
+        </div>
+      </div>
+    </article>
+    <article class="testi-card" data-reveal="3">
+      <p class="testi-quote">Yang saya suka: langsung terhubung ke WhatsApp. Pelanggan tinggal chat, saya tinggal balas. Gak perlu aplikasi tambahan.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">DA</div>
+        <div>
+          <p class="testi-name">Dewi Anggraini</p>
+          <p class="testi-role">Toko Kue Kering · Gresik</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section wrap" id="faq">
+  <div class="center" data-reveal>
+    <p class="eyebrow">Pertanyaan umum</p>
+    <h2>Hal yang sering<br><em>ditanyakan.</em></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item" data-reveal>
+      <button class="faq-q" type="button" aria-expanded="true">
+        <span>Apa itu NADI?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a">
+        <p>NADI adalah jaringan yang menghubungkan kebutuhan manusia dengan manusia yang mampu memenuhinya. Mulai dari UMKM, kami membangun rumah digital untuk setiap usaha yang ingin dikenal lebih luas.</p>
+      </div>
+    </div>
+    <div class="faq-item" data-reveal>
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>Apakah benar-benar gratis?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Ya. Untuk paket dasar, kamu bisa membuat landing page UMKM gratis tanpa biaya sepeser pun. Ada juga paket Pro dan Bisnis dengan fitur tambahan untuk yang ingin lebih serius.</p>
+      </div>
+    </div>
+    <div class="faq-item" data-reveal>
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>Butuh keahlian teknis?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Tidak. Kamu cukup isi nama usaha, deskripsi singkat, dan kontak WhatsApp. Sistem akan otomatis membuat halaman yang siap dibagikan ke pelanggan.</p>
+      </div>
+    </div>
+    <div class="faq-item" data-reveal>
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>Website saya bisa diakses dari mana?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Semua website yang dibuat lewat NADI langsung online dan bisa diakses dari seluruh dunia. Cukup bagikan link ke pelanggan via WhatsApp, Instagram, atau media sosial lainnya.</p>
+      </div>
+    </div>
+    <div class="faq-item" data-reveal>
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>Bagaimana cara pelanggan menghubungi saya?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Setiap halaman punya tombol WhatsApp yang langsung terhubung ke nomor kamu. Pelanggan tinggal klik, chat otomatis terbuka dengan pesan yang sudah disiapkan.</p>
+      </div>
+    </div>
+    <div class="faq-item" data-reveal>
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>Apakah saya bisa upgrade nanti?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Tentu. Kamu bisa mulai dari paket gratis, dan kapan saja upgrade ke Pro atau Bisnis ketika usaha berkembang. Tidak ada kontrak jangka panjang.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap" id="harga">
+  <div class="center" data-reveal>
+    <p class="eyebrow">Pilihan paket</p>
+    <h2>Mulai gratis,<br><em>berkembang bersama.</em></h2>
+  </div>
+  <div class="pricing-grid">
+    <article class="price-card" data-reveal="1">
+      <p class="price-tier">Gratis</p>
+      <p class="price-amount">Rp 0<small> /selamanya</small></p>
+      <p class="price-desc">Untuk UMKM yang baru mulai dan ingin punya kehadiran online.</p>
+      <ul class="price-list">
+        <li>Landing page 1 halaman</li>
+        <li>Tombol WhatsApp langsung</li>
+        <li>Link bisa dibagikan</li>
+        <li>Hosting gratis</li>
+      </ul>
+      <a class="price-cta" href="../web-builder/index.html">Mulai gratis</a>
+    </article>
+
+    <article class="price-card featured" data-reveal="2">
+      <span class="price-badge">Paling Populer</span>
+      <p class="price-tier">Pro</p>
+      <p class="price-amount">Rp 49rb<small> /bulan</small></p>
+      <p class="price-desc">Untuk usaha yang serius dan ingin tampil lebih profesional.</p>
+      <ul class="price-list">
+        <li>Semua fitur Gratis</li>
+        <li>Katalog produk &amp; jasa</li>
+        <li>Galeri foto usaha</li>
+        <li>Google Maps terintegrasi</li>
+        <li>Domain custom (opsional)</li>
+      </ul>
+      <a class="price-cta" href="../web-builder/index.html">Pilih Pro ↗</a>
+    </article>
+
+    <article class="price-card" data-reveal="3">
+      <p class="price-tier">Bisnis</p>
+      <p class="price-amount">Rp 149rb<small> /bulan</small></p>
+      <p class="price-desc">Untuk usaha dengan banyak produk dan butuh kontrol penuh.</p>
+      <ul class="price-list">
+        <li>Semua fitur Pro</li>
+        <li>Unlimited produk</li>
+        <li>Analitik pengunjung</li>
+        <li>Multi-bahasa</li>
+        <li>Dukungan prioritas</li>
+      </ul>
+      <a class="price-cta" href="../web-builder/index.html">Pilih Bisnis</a>
+    </article>
+  </div>
+</section>
+
+<section class="closing wrap" data-reveal>
+  <p class="eyebrow">Connecting human needs to human capabilities</p>
+  <h2>Lebih dekat dengan<br><em>orang yang tepat.</em></h2>
+  <a class="btn dark" href="../web-builder/index.html"><span>Buat website gratis ↗</span></a>
+</section>
+
+</main>
+
+<footer class="footer wrap">
+  <b>NADI</b>
+  <span>Kebutuhan manusia, dipenuhi manusia.</span>
+  <small>© <span data-year></span> HakemProject. NADI adalah bagian dari ekosistem HakemProject.</small>
+</footer>
+
+<a class="wa-float" href="../web-builder/index.html">Chat WhatsApp</a>
+
+<script src="main.js"></script>
+</body>
+</html>
