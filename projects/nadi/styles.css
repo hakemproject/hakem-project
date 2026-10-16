@@ -1606,3 +1606,45 @@ section {
   max-height: 64px !important;
   display: block;
 }
+
+/* Wave animasi — glow putih berjalan */
+.art .nadi-line {
+  opacity: 1;
+}
+
+.art .nadi-glow {
+  opacity: 0;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  filter: blur(4px) drop-shadow(0 0 20px #fff);
+  animation: nadiGlowSweep 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes nadiGlowSweep {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 400;
+  }
+  5% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+    stroke-dashoffset: -400;
+  }
+  75% {
+    opacity: 0.6;
+  }
+  85%, 100% {
+    opacity: 0;
+    stroke-dashoffset: -400;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .art .nadi-glow {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+}
